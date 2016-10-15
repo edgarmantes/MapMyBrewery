@@ -1,14 +1,17 @@
 
 function initMap() {            //Callback function that is passed to the AJAX request on initial load
+ 
   var markerArray = [];
-
   // Instantiate a directions service.
   var directionsService = new google.maps.DirectionsService;
 
   // Create a map and center it on Manhattan.
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
-    center: {lat: 40.771, lng: -73.974}
+    center: {
+      lat: 40.771,
+      lng: -73.974
+    }
   });
 
   // Create a renderer for directions and bind it to the map.
@@ -22,12 +25,16 @@ function initMap() {            //Callback function that is passed to the AJAX r
   
   // Listen to change events from the start and end lists.
   var onChangeHandler = function() {
-    calculateAndDisplayRoute(
-        directionsDisplay, directionsService, markerArray, stepDisplay, map);
+    calculateAndDisplayRoute(directionsDisplay, directionsService, markerArray, stepDisplay, map);
   };
+
+  //Event listeners on 'change' for the start and end dropdown boxes
   document.getElementById('start').addEventListener('change', onChangeHandler);
   document.getElementById('end').addEventListener('change', onChangeHandler);
 }
+
+
+
 
 function calculateAndDisplayRoute(directionsDisplay, directionsService,
     markerArray, stepDisplay, map) {
@@ -36,12 +43,14 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService,
     markerArray[i].setMap(null);
   }
 
+  // Takes the mode of travel value.
+  var mode = document.getElementById('mode').value;
   // Retrieve the start and end locations and create a DirectionsRequest using
   // WALKING directions.
   directionsService.route({
     origin: document.getElementById('start').value,
     destination: document.getElementById('end').value,
-    travelMode: 'WALKING'
+    travelMode: mode    // Selects mode of travel
   }, function(response, status) {
     // Route the directions and pass the response to a function to create
     // markers for each step.
@@ -56,6 +65,8 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService,
   });
 }
 
+
+
 function showSteps(directionResult, markerArray, stepDisplay, map) {
   // For each step, place a marker, and add the text to the marker's infowindow.
   // Also attach the marker to an array so we can keep track of it and remove it
@@ -69,6 +80,9 @@ function showSteps(directionResult, markerArray, stepDisplay, map) {
         stepDisplay, marker, myRoute.steps[i].instructions, map);
   }
 }
+
+
+
 
 function attachInstructionText(stepDisplay, marker, text, map) {
   google.maps.event.addListener(marker, 'click', function() {
@@ -86,123 +100,3 @@ function attachInstructionText(stepDisplay, marker, text, map) {
 
 
 
-// //geolocationPage
-// var x = document.getElementById("geoLocation");
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//         x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-// function showPosition(position) {
-//     x.innerHTML = "Latitude: " + position.coords.latitude + 
-//     "<br>Longitude: " + position.coords.longitude; 
-// }
-
-// $(document).on('click', '#getGeolocation', function(){
-//     console.log("clicked");
-//     getLocation();
-// });
-
-// //map page
-// var y = document.getElementById("map-canvas");
-// var mapLatitude;
-// var mapLongitude;
-// var myLatlng;
-
-// function getMapLocation() {
-//   console.log("getMapLocation");
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showMapPosition);
-//     } else {
-//         y.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-// function showMapPosition(position) {
-//   console.log("showMapPosition");
-//     mapLatitude = position.coords.latitude;
-//     mapLongitude = position.coords.longitude;
-//     myLatlng = new google.maps.LatLng(mapLatitude,mapLongitude);
-//     getMap();
-// }
-
-
-// var map;
-// function getMap() {
-//   console.log("getMap");
-//   var mapOptions = {
-//     zoom: 12,
-//     center: new google.maps.LatLng(mapLatitude, mapLongitude)
-//   };
-//   map = new google.maps.Map(document.getElementById('map-canvas'),
-//       mapOptions);
-
-//   var marker = new google.maps.Marker({
-//       position: myLatlng,
-//       map: map,
-//       title:"You are here!"
-//   });
-// }
-
-// $( document ).on( "pageshow", "#mapPage", function( event ) {
-//   getMapLocation();
-// });
-
-// //directionsPage
-// var directionsDisplay;
-// var directionsService = new google.maps.DirectionsService();
-// var directionsMap;
-// var z = document.getElementById("directions-canvas");
-// var start;
-// var end;
-
-// function getDirectionsLocation() {
-//   console.log("getDirectionsLocation");
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showDirectionsPosition);
-//     } else {
-//         z.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-
-// function showDirectionsPosition(position) {
-//   console.log("showDirectionsPosition");
-//     directionsLatitude = position.coords.latitude;
-//     directionsLongitude = position.coords.longitude;
-//     directionsLatLng = new google.maps.LatLng(directionsLatitude,directionsLongitude);
-//     getDirections();
-// }
-
-// function getDirections() {
-//   console.log('getDirections');
-//   directionsDisplay = new google.maps.DirectionsRenderer();
-//   //start = new google.maps.LatLng(directionsLatLng);
-//   var directionsOptions = {
-//     zoom:12,
-//     center: start
-//   }
-//   directionsMap = new google.maps.Map(document.getElementById("directions-canvas"), directionsOptions);
-//   directionsDisplay.setMap(directionsMap);
-//   calcRoute();
-// }
-
-// function calcRoute() {
-//   console.log("calcRoute");
-//   start = directionsLatLng;
-//   end = "50 Rue Ste-Catherine O Montréal, QC H2X 1Z6";
-//   var request = {
-//     origin:start,
-//     destination:end,
-//     travelMode: google.maps.TravelMode.TRANSIT
-//   };
-//   directionsService.route(request, function(result, status) {
-//     if (status == google.maps.DirectionsStatus.OK) {
-//       directionsDisplay.setDirections(result);
-//     }
-//   });
-// }
-
-// $( document ).on( "pageshow", "#directionsPage", function( event ) {
-//   getDirectionsLocation();
-// });
