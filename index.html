@@ -1,57 +1,54 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Directions service (complex)</title>
+    <title>Waypoints in directions</title>
+    <link rel="stylesheet" type="text/css" href="stylessheets/normalize.css">
     <link rel="stylesheet" type="text/css" href="stylessheets/style.css">
+
+
   </head>
-
   <body>
-
-    <div id="floating-panel">
-      <b>Start: </b>
-      <select id="start">
-      <option value="penn station, new york, ny">Penn Station</option>
-      <option value="grand central station, new york, ny">Grand Central Station</option>
-      <option value="625 8th Avenue, New York, NY, 10018">Port Authority Bus Terminal</option>
-      <option value="staten island ferry terminal, new york, ny">Staten Island Ferry Terminal</option>
-      <option value="101 E 125th Street, New York, NY">Harlem - 125th St Station</option>
-      </select><br>
-      <b>End: </b>
-      <select id="end">
-        <option value="260 Broadway New York NY 10007">City Hall</option>
-        <option value="W 49th St & 5th Ave, New York, NY 10020">Rockefeller Center</option>
-        <option value="moma, New York, NY">MOMA</option>
-        <option value="350 5th Ave, New York, NY, 10118">Empire State Building</option>
-        <option value="253 West 125th Street, New York, NY">Apollo Theater</option>
-        <option value="1 Wall St, New York, NY">Wall St</option>
-      </select>
-      <b>Mode of Travel: </b>
-      <select id="mode">
-        <option value="DRIVING">Driving</option>
-        <option value="WALKING">Walking</option>
-        <option value="BICYCLING">Bicycling</option>
-        <option value="TRANSIT">Transit</option>
-      </select>
+    <div id="map"></div>
+    <div id="right-panel">
+    <div>
+    <b>Start:</b>
+    <select id="start">
+      <option value="Halifax, NS">Halifax, NS</option>
+      <option value="Boston, MA">Boston, MA</option>
+      <option value="New York, NY">New York, NY</option>
+      <option value="Miami, FL">Miami, FL</option>
+    </select>
+    <br>
+    <b>Waypoints:</b> <br>
+    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+    <select multiple id="waypoints">
+      <option value="montreal, quebec">Montreal, QBC</option>
+      <option value="toronto, ont">Toronto, ONT</option>
+      <option value="chicago, il">Chicago</option>
+      <option value="winnipeg, mb">Winnipeg</option>
+      <option value="fargo, nd">Fargo</option>
+      <option value="calgary, ab">Calgary</option>
+      <option value="spokane, wa">Spokane</option>
+    </select>
+    <br>
+    <b>End:</b>
+    <select id="end">
+      <option value="Vancouver, BC">Vancouver, BC</option>
+      <option value="Seattle, WA">Seattle, WA</option>
+      <option value="San Francisco, CA">San Francisco, CA</option>
+      <option value="Los Angeles, CA">Los Angeles, CA</option>
+    </select>
+    <br>
+      <input type="submit" id="submit">
+    </div>
+    <div id="directions-panel"></div>
     </div>
 
-    <div id="map"></div>
-    &nbsp;
-    <div id="warnings-panel"></div>
-
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="geoDirectionService.js"></script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7dD8nixOdbeJUY05vCM1_MAAugdl3NWg&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtHOqdrh1DeBzBzbbgHBND5V8nJ9Ecixg&callback=initMap">
     </script>
-    
   </body>
 </html>
-
-
-
-
-
-
-
