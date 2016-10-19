@@ -16,7 +16,7 @@ function initMap() {
   // });
 }
 
-$('.submit').on('click', setTimeout(function(locations){
+$('.submit').on('click', function(locations){
   if (locations){
 
     for (var i = locations.length - 1; i >= 0; i--) {
@@ -29,7 +29,7 @@ $('.submit').on('click', setTimeout(function(locations){
   } else {
     alert('Sorry, but that area has none :(')
   }
-})(locations), 2000)
+})
 
 
 
