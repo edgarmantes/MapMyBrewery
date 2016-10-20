@@ -22,11 +22,12 @@ form {
   height: 200px;
   background-color: red;
   text-align: center;
+  border-radius: 15px;
 }
 
 .js-postalcode {
-  margin-top: 60px;
-  
+  width: 80%;
+  font-size: 1.0rem;
 }
 
 .submit {
