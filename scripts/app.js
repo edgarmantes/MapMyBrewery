@@ -140,9 +140,19 @@ $(document).ready(function(){
     var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
 
     $('.favs').after().append(clone);
-    $('button').replaceWith('<button class="delete">Delete</button>')
+    $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>')
   })
 
+  $('.favs').on('click', '.delete', function(event){
+    event.preventDefault();
 
+    if ($('.favs').children().length !== 2) {
+      console.log($('.favs').children().length);
+      $(this).closest('.added').detach();
+      event.stopPropagation();
+    } else {
+      $('.favs').addClass('hidden');
+    }
+  })
 
 });
