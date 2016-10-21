@@ -1,5 +1,7 @@
 * {
+  outline-width: 0;
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
@@ -23,14 +25,12 @@ main {
   right: 5%;
   top: 5%;
   width: 25%;
+  max-height: 100%;
   max-width: 350px;
-  background-color: red;
-  border-radius: 15px;
-  box-shadow: 4px 4px 10px 4px black ;
 }
 
 .outer {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -40,12 +40,11 @@ main {
 }
 
 .js-postalcode {
-  width: 100%;
+  width: 80%;
   height: 35px;
   font-size: 1.0rem;
   color: white;
   border: 2px solid lightgrey;
-  border-radius: 10px;
   background-color: transparent;
   text-align: center;
   outline-width: 0;
@@ -53,12 +52,11 @@ main {
 
 .submit {
   margin: 15px 0 15px 0;
-  width: 100%;
+  width: 80%;
   height: 50px;
   background-color: transparent;
   border: 2px solid lightgrey;
   color: lightgrey;
-  border-radius: 10px;
 }
 
 
@@ -80,7 +78,7 @@ img {
 }
 
 .js-list, .added {
-  margin: 10px 0 10px 0;
+  margin: 10px;
   border-bottom: 3px solid darkred;
   overflow: auto;
 }
@@ -90,9 +88,11 @@ a {
 }
 
 .list-name {
-  margin: 5px 0 5px 0;
   font-size: 1.3vw;
   text-decoration: none;
+  padding: 10px 0 5px 0;
+  width: 80%;
+  font-family: 'Economica', sans-serif;
 }
 
 .hidden {
@@ -118,10 +118,30 @@ a {
   background-color: transparent;
   border: 2px solid lightgrey;
   color: lightgrey;
-  border-radius: 10px;
 }
 
 
-h4 {
-  margin: 25px 0 5px 0;
+h3 {
+  padding: 20px 0 5px 10px;
+  font-family: 'Righteous', cursive;
+  color: white;
 }
+
+h1 {
+  margin: 0;
+  padding: 10px 0 10px 0;
+  font-family: 'Righteous', cursive;
+  color: white;
+}
+
+.favs {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.block {
+  background-color: red;
+  box-shadow: 4px 4px 10px 4px grey;
+  margin: 10px 0 ;
+}
+
