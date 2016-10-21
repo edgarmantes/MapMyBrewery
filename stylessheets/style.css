@@ -1,3 +1,7 @@
+/****************************
+General
+****************************/
+
 * {
   outline-width: 0;
   box-sizing: border-box;
@@ -19,7 +23,6 @@ body {
   background-color: grey;
 }
 
-
 main {
   position: absolute;
   right: 5%;
@@ -34,10 +37,13 @@ main {
   margin: auto;
 }
 
-.container {
-  text-align: center;
-  
+.hidden {
+  display: none;
 }
+
+/****************************
+Form  Element Styling
+****************************/
 
 .js-postalcode {
   width: 80%;
@@ -62,7 +68,9 @@ main {
   font-family: 'Economica', sans-serif;
   font-size: 2.0vw;
 }
-
+/****************************
+Result list container
+****************************/
 
 .description-block {
   display: inline-block;
@@ -75,21 +83,20 @@ main {
   float: left;
 }
 
-img {
-  width: 20%;
-  margin: 6px;
-  float: right;
-}
 
-.js-list, .added {
-  margin: 10px;
-  border-bottom: 3px solid darkred;
+
+/****************************
+Favs List container
+****************************/
+
+.favs {
+  max-height: 300px;
   overflow: auto;
 }
 
-a {
-  text-decoration: none;
-}
+/****************************
+Button and Text
+****************************/
 
 .list-name {
   font-size: 30px;
@@ -101,22 +108,6 @@ a {
 
 }
 
-.hidden {
-  display: none;
-}
-
-
-.clear {
-  margin: 15px 0 15px 0;
-  width: 50%;
-  height: 25px;
-  background-color: transparent;
-  border: 2px solid lightgrey;
-  color: lightgrey;
-  border-radius: 10px;
-}
-
-
 .add, .delete {
   margin: 5px 0 5px 0;
   width: 40%;
@@ -124,6 +115,10 @@ a {
   background-color: transparent;
   border: 2px solid lightgrey;
   color: lightgrey;
+}
+
+a {
+  text-decoration: none;
 }
 
 
@@ -142,8 +137,17 @@ h1 {
   text-shadow: -3px 3px #000;
 }
 
-.favs {
-  max-height: 300px;
+
+/**********************************
+Container Styling
+**********************************/
+.container {
+  text-align: center; 
+}
+
+.js-list, .added {
+  margin: 10px;
+  border-bottom: 3px solid darkred;
   overflow: auto;
 }
 
@@ -153,4 +157,3 @@ h1 {
   margin: 10px;
   padding: 1px;
 }
-
