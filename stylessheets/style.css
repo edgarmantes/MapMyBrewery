@@ -18,7 +18,7 @@ body {
 }
 
 
-form {
+main {
   position: absolute;
   right: 5%;
   top: 5%;
@@ -79,11 +79,14 @@ img {
   float: right;
 }
 
-.js-list {
-  width: 90%;
-  margin: 8px auto;
+.js-list, .added {
+  margin: 10px 0 10px 0;
   border-bottom: 3px solid darkred;
   overflow: auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 .list-name {
@@ -94,4 +97,15 @@ img {
 
 .hidden {
   display: none;
+}
+
+
+.clear {
+  margin: 15px 0 15px 0;
+  width: 50%;
+  height: 25px;
+  background-color: transparent;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  border-radius: 10px;
 }

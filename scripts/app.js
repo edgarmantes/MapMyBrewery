@@ -38,6 +38,9 @@ Callback function for BrewerDB API AJAX
 *********************************/
 
 function displaySearchData(data) {
+  locations = [];
+  $('.js-list').remove();
+  //setMapOnAll(null);
   for (var i = 0; i < data.totalResults; i++){
 
     /*****************************
@@ -52,7 +55,6 @@ function displaySearchData(data) {
     vars for renderHtmlList()
     ******************************/
     var website = data.data[i].website;
-
 
     addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
     //renderHtmlList(title, website)
@@ -73,6 +75,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
     map: map,
     animation: google.maps.Animation.DROP,
   });
+
     
   //Gives each marker an Id for the on click
   markerCount++;
@@ -96,29 +99,28 @@ Render returned list onto list div on sidebar
 *********************************/
 
 function renderHtmlList(title, website){
+
   var list = $('<div>').addClass('js-list');
   var description = $('<div>').addClass('description description-block');
   var listName = $('<h4>').addClass('list-name').html(title);
   var link = $('<a>').attr('href', website).attr('target', '_blank');
+  var addTo = $('<button>').addClass('add').html('List');
 
-  var website = $(link).append(listName);
+  var website = $(link).append(listName).append(addTo);
   var descript = $(description).append(website);
   var listed = $(list).append(descript);
 
   $('.list-container').removeClass('hidden');
-  $('.list-container').append(listed);
-
-
-
+  $('.places').after(listed);
 }
 
+/********************************
+Added selected in Fav List
+********************************/
 
-
-// <div class="js-list">
-//   <div class="description description-block">
-//     <a href="http://www.baderbrau.com" target="_blank"><h4 class="list-name">Baderbrau Brewery</h4></a>
-//   </div>
-// </div>
+function favs(e){
+  console.log(e)
+}
 
 
 /*********************************
@@ -131,4 +133,16 @@ $(document).ready(function(){
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });
+
+  $('.list-container').on('click', '.add', function(event){
+    event.preventDefault();
+    $('.favs').removeClass('hidden');
+    var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
+
+    $('.favs').after().append(clone);
+    $('button').replaceWith('<button class="delete">Delete</button>')
+  })
+
+
+
 });

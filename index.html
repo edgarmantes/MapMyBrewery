@@ -9,21 +9,23 @@
   <body>
     <div id="map"></div>
     <main>
-      <form class="js-search-form">
-        <div class="outer">
+      <div class="outer">
+        <form class="js-search-form">       
           <div class="container">
-            <h1>Brewery</h1>
-            <div class="container">
-              <input type="text" class="js-postalcode" name="js-postalcode" autocomplete="off" placeholder="Postal/Zip Code">
-              <button type="submit" class="submit">Submit</button>
-            </div>
-          </div>
-          
-          <div class="list-container hidden">           
-            <h4>Look at these places:</h4>
-          </div>
+              <h1>Brewery</h1>
+              <div class="container">
+                <input type="text" class="js-postalcode" name="js-postalcode" autocomplete="off" placeholder="Postal/Zip Code">
+                <button type="submit" class="submit">Submit</button>
+              </div>
+          </div>  
+        </form>    
+        <div class="list-container hidden">          
+          <h4 class="places">Look at these places:</h4> 
         </div>
-      </form>
+        <div class="favs hidden">
+          <h4 class="list">Favs List:</h4>
+        </div>
+      </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
