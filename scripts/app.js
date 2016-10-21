@@ -105,6 +105,7 @@ function renderHtmlList(title, website){
   var descript = $(description).append(website);
   var listed = $(list).append(descript);
 
+  $('.list-container').removeClass('hidden');
   $('.list-container').append(listed);
 
 
