@@ -151,6 +151,8 @@ $(document).ready(function(){
       $(this).closest('.added').detach();
       event.stopPropagation();
     } else {
+      $(this).closest('.added').detach();
+      event.stopPropagation();
       $('.favs').addClass('hidden');
     }
   })
