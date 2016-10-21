@@ -40,13 +40,23 @@ Callback function for BrewerDB API AJAX
 function displaySearchData(data) {
   for (var i = 0; i < data.totalResults; i++){
 
+    /*****************************
+    vars for addMarkerToMap()
+    *****************************/
     var lat = data.data[i].latitude;
     var lng = data.data[i].longitude;
     var title = data.data[i].name;
     var info = "<h1>" + data.data[i].name + "</h1>";
-    var image = 
+    
+    /******************************
+    vars for renderHtmlList()
+    ******************************/
+    var website = data.data[i].website;
+
 
     addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
+    //renderHtmlList(title, website)
+    renderHtmlList(title, website)
   }
 }
 
@@ -82,10 +92,32 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 }
 
 /*********************************
-Render returned list onto list div
+Render returned list onto list div on sidebar
 *********************************/
 
+function renderHtmlList(title, website){
+  var list = $('<div>').addClass('js-list');
+  var description = $('<div>').addClass('description description-block');
+  var listName = $('<h4>').addClass('list-name').html(title);
+  var link = $('<a>').attr('href', website).attr('target', '_blank');
 
+  var website = $(link).append(listName);
+  var descript = $(description).append(website);
+  var listed = $(list).append(descript);
+
+  $('.list-container').append(listed);
+
+
+
+}
+
+
+
+// <div class="js-list">
+//   <div class="description description-block">
+//     <a href="http://www.baderbrau.com" target="_blank"><h4 class="list-name">Baderbrau Brewery</h4></a>
+//   </div>
+// </div>
 
 
 /*********************************
