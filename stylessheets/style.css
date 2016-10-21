@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
@@ -19,10 +23,18 @@ form {
   right: 5%;
   top: 5%;
   width: 25%;
-  height: 200px;
   background-color: red;
-  text-align: center;
   border-radius: 15px;
+}
+
+.outer {
+  width: 90%;
+  margin: auto;
+}
+
+.container {
+  text-align: center;
+  
 }
 
 .js-postalcode {
@@ -33,3 +45,35 @@ form {
 .submit {
   margin-top: 15px;
 }
+
+
+.description-block {
+  display: inline-block;
+  padding: 5px 0 5px;
+}
+
+.description {
+  width: 70%;
+  padding-left: 5px;
+  float: left;
+}
+
+img {
+  width: 20%;
+  margin: 6px;
+  float: right;
+}
+
+.js-list {
+  width: 90%;
+  margin: 5px auto;
+  border: 3px double white;
+  overflow: auto;
+
+}
+
+.list-name, p {
+  margin: 5px 0 5px 0;
+  font-size: 1.2vw;
+}
+

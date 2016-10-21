@@ -44,7 +44,8 @@ function displaySearchData(data) {
     var lng = data.data[i].longitude;
     var title = data.data[i].name;
     var info = "<h1>" + data.data[i].name + "</h1>";
-   
+    var image = 
+
     addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
   }
 }
@@ -76,8 +77,13 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
   })(marker, markerCount));  
   
   //Pans map to the new location of the marker
-  map.panTo(myLatLng)        
+  map.panTo(myLatLng)   
+
 }
+
+/*********************************
+Render returned list onto list div
+*********************************/
 
 
 
