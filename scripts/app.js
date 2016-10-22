@@ -130,6 +130,15 @@ Event Listener
 *********************************/
 
 $(document).ready(function(){
+  $('.full-page').on('click', '.submit', function(e) {
+    e.preventDefault(); 
+    $('.full-page').addClass('hidden');
+    $('.outer').removeClass('hidden');
+    var query = $(this).siblings().val();
+    getDataFromApi(query, displaySearchData);
+  });
+
+
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
     var query = $(this).siblings().val();
