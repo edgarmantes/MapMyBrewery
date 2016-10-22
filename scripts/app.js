@@ -48,7 +48,7 @@ function displaySearchData(data) {
     *****************************/
     var lat = data.data[i].latitude;
     var lng = data.data[i].longitude;
-    var title = data.data[i].name;
+    var title = data.data[i].brewery.name;
     var info = "<h1>" + data.data[i].name + "</h1>";
     
     /******************************
@@ -104,7 +104,7 @@ function renderHtmlList(title, website){
   var description = $('<div>').addClass('description description-block');
   var listName = $('<h4>').addClass('list-name').html(title);
   var link = $('<a>').attr('href', website).attr('target', '_blank');
-  var addTo = $('<button>').addClass('add').html('List');
+  var addTo = $('<button>').addClass('add').html('Interested');
 
   var website = $(link).append(listName).append(addTo);
   var descript = $(description).append(website);

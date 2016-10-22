@@ -58,16 +58,7 @@ Form  Element Styling
   outline-width: 0;
 }
 
-.submit {
-  margin: 15px 0 15px 0;
-  width: 80%;
-  height: 50px;
-  background-color: transparent;
-  border: 2px solid lightgrey;
-  color: lightgrey;
-  font-family: 'Economica', sans-serif;
-  font-size: 2.0vw;
-}
+
 /****************************
 Result list container
 ****************************/
@@ -78,7 +69,7 @@ Result list container
 }
 
 .description {
-  width: 70%;
+  width: 100%;
   padding-left: 5px;
   float: left;
 }
@@ -98,6 +89,22 @@ Favs List container
 Button and Text
 ****************************/
 
+.submit {
+  margin: 15px 0 15px 0;
+  width: 80%;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  font-family: 'Economica', sans-serif;
+  font-size: 2.0vw;
+}
+
+button.submit:hover {
+  background-color: lightgrey;
+  color: rgba(230, 115, 0, 0.9);
+}
+
 .list-name {
   font-size: 30px;
   text-decoration: none;
@@ -108,28 +115,55 @@ Button and Text
 
 }
 
-.add, .delete {
+h4.list-name:hover {
+  font-size: 32px;
+  color: blue;
+}
+
+
+.add {
   margin: 5px 0 5px 0;
   width: 40%;
   height: 25px;
   background-color: transparent;
   border: 2px solid lightgrey;
+  font-family: 'Righteous', cursive;
   color: lightgrey;
+}
+
+button.add:hover {
+  background-color: lightgrey;
+  color: rgba(230, 115, 0, 0.9) ;
+}
+
+.delete {
+  margin: 5px 0 5px 0;
+  width: 40%;
+  height: 25px;
+  background-color: transparent;
+  border: 2px solid rgb(128, 32, 0);
+  font-family: 'Righteous', cursive;
+  color: rgb(128, 32, 0);
+}
+
+button.delete:hover {
+  background-color: rgb(128, 32, 0);
+  color: rgba(255, 255, 179, 0.8);
 }
 
 a {
   text-decoration: none;
-}
 
+}
 
 h3 {
   padding: 20px 0 5px 10px;
   font-family: 'Righteous', cursive;
   color: white;
-  background-color: #ff3333;
+  background-color: rgb(128, 32, 0);
 }
 
-h1 {
+.header {
   margin: 0;
   padding: 10px 0 10px 0;
   font-family: 'Righteous', cursive;
@@ -149,11 +183,21 @@ Container Styling
   margin: 10px;
   border-bottom: 3px solid darkred;
   overflow: auto;
+
 }
 
 .block {
-  background-color: rgba(255, 80, 80, 0.9);
+  background-color: rgba(230, 115, 0, 0.9);
   box-shadow: 4px 4px 10px 4px grey;
   margin: 10px;
   padding: 1px;
+}
+
+.listed {
+  background-color: rgba(255, 255, 179, 0.8);
+}
+
+.list-container {
+  max-height: 380px;
+  overflow: auto;
 }
