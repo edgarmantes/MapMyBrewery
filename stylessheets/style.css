@@ -201,3 +201,7 @@ Container Styling
   max-height: 380px;
   overflow: auto;
 }
+
+.popup {
+  margin-bottom: 0;
+}

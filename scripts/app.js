@@ -49,8 +49,10 @@ function displaySearchData(data) {
     var lat = data.data[i].latitude;
     var lng = data.data[i].longitude;
     var title = data.data[i].brewery.name;
-    var info = "<h1>" + data.data[i].name + "</h1>";
+    var address = data.data[i].streetAddress;
+    var info = "<h1 class='popup'>" + title + "</h1><br><p>" + address + "</p>";
     
+
     /******************************
     vars for renderHtmlList()
     ******************************/
