@@ -42,184 +42,67 @@ main {
   display: none;
 }
 
-
-.js-search-form {
+.full-page {
   position: fixed;
-  right: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  height: 125px;
-  float: 
+  background-color: rgba(230, 115, 0, 0.9);
+  text-align: center;
 }
 
-/****************************
-Form  Element Styling
-****************************/
 
-.js-postalcode {
+.full-form {
+  margin-top: 25%;
+}
+
+
+.head {
+  margin: 0;
+  padding: 10px 0 10px 0;
+  font-family: 'Righteous', cursive;
+  color: white;
+  text-shadow: -7px 5px #000;
+  font-size: 8.0rem;
+}
+
+.full-p {
+  font-size: 5.0rem;
+  margin: 0 0 20px 0;
+  font-family: 'Economica', sans-serif;
+}
+
+.full-input {
   width: 80%;
-  height: 35px;
+  height: 100px;
   font-size: 1.0rem;
   color: white;
-  border: 2px solid white;
+  border: 10px solid white;
   background-color: transparent;
   font-family: 'Economica', sans-serif;
-  font-size: 1.5vw;
+  font-size: 7.0vw;
   text-align: center;
   outline-width: 0;
 }
 
-
-/****************************
-Result list container
-****************************/
-
-.description-block {
-  display: inline-block;
-  padding: 5px 0 5px;
-}
-
-.description {
-  width: 100%;
-  padding-left: 5px;
-  float: left;
-}
-
-
-
-/****************************
-Favs List container
-****************************/
-
-.favs {
-  max-height: 300px;
-  overflow: auto;
-}
-
-/****************************
-Button and Text
-****************************/
-
-.submit {
+.full-submit {
   margin: 15px 0 15px 0;
   width: 80%;
-  height: 50px;
+  height: 125px;
   background-color: transparent;
-  border: 2px solid lightgrey;
+  border: 10px solid lightgrey;
   color: lightgrey;
   font-family: 'Economica', sans-serif;
-  font-size: 2.0vw;
+  font-size: 7.0vw;
 }
 
-button.submit:hover {
+button.full-submit:active {
   background-color: lightgrey;
   color: rgba(230, 115, 0, 0.9);
 }
 
-.list-name {
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
-  padding: 10px 0 5px 0;
-  width: 100%;
-  font-family: 'Economica', sans-serif;
 
-}
-
-h4.list-name:hover {
-  font-size: 32px;
-  color: blue;
-  padding: none;
-}
-
-
-.add {
-  margin: 5px 0 5px 0;
-  width: 40%;
-  height: 25px;
-  background-color: transparent;
-  border: 2px solid lightgrey;
-  font-family: 'Righteous', cursive;
-  color: lightgrey;
-}
-
-button.add:hover {
-  background-color: lightgrey;
-  color: rgba(230, 115, 0, 0.9) ;
-}
-
-.delete {
-  margin: 5px 0 5px 0;
-  width: 40%;
-  height: 25px;
-  background-color: transparent;
-  border: 2px solid rgb(128, 32, 0);
-  font-family: 'Righteous', cursive;
-  color: rgb(128, 32, 0);
-}
-
-button.delete:hover {
-  background-color: rgb(128, 32, 0);
-  color: rgba(255, 255, 179, 0.8);
-}
-
-a {
-  text-decoration: none;
-
-}
-
-h3 {
-  padding: 20px 0 5px 10px;
-  font-family: 'Righteous', cursive;
-  color: white;
-  background-color: rgb(128, 32, 0);
-}
-
-.header {
-  display: inline-block;
-  margin: 31px 20px;
-  font-family: 'Righteous', cursive;
-  color: white;
-  text-shadow: -3px 3px #000;
-  font-size: 50px;
-}
-
-
-/**********************************
-Container Styling
-**********************************/
-.container {
-  display: inline-block;
-  width: 60%;
-  text-align: center; 
-}
-
-.js-list, .added {
-  margin: 10px;
-  border-bottom: 3px solid darkred;
-  overflow: auto;
-
-}
-
-.block {
-  background-color: rgba(230, 115, 0, 0.9);
-  box-shadow: 4px 4px 10px 4px grey;
-  margin: 10px;
-  padding: 1px;
-}
-
-.listed {
-  background-color: rgba(255, 255, 179, 0.8);
-}
-
-.list-container {
-  max-height: 380px;
-  overflow: auto;
-}
-
-.popup {
-  margin-bottom: 0;
-}
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {}
 
