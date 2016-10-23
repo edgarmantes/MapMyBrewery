@@ -50,9 +50,15 @@ function displaySearchData(data) {
     var lat = data.data[i].latitude;
     var lng = data.data[i].longitude;
     var title = data.data[i].brewery.name;
+    var website = data.data[i].website;
+    var organic = data.data[i].brewery.isOrganic;
     var address = data.data[i].streetAddress;
-    var info = "<h1 class='popup'>" + title + "</h1><br><p>" + address + "</p>";
+    var phone = data.data[i].phone;
+    var info = "<h1 class='popup'>" + title + "</h1><br><p>Organic: " + organic + "<br><p>" + address + "</p>" +
+              "<br><p class='pop-p'>phone:" + phone + "</p><br><a href='" + website + 
+              "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>"
     
+
 
     /******************************
     vars for renderHtmlList()
@@ -64,6 +70,7 @@ function displaySearchData(data) {
     renderHtmlList(title, website)
   }
 }
+
 
 
 /*********************************
@@ -97,9 +104,11 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 
 }
 
-//These set of function deletes 
 
 
+/****************************************
+Deletes all markers on the map after submitting new zip code query
+*****************************************/
 function deleteMarkers(){
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null)
@@ -117,7 +126,7 @@ function renderHtmlList(title, website){
   var list = $('<div>').addClass('js-list');
   var description = $('<div>').addClass('description description-block');
   var listName = $('<h4>').addClass('list-name').html(title);
-  var link = $('<a>').attr('href', website).attr('target', '_blank');
+  var link = $('<a>').attr('href', '#').addClass('wind') //website).attr('target', '_blank');
   var addTo = $('<button>').addClass('add').html('Interested');
 
   var website = $(link).append(listName).append(addTo);
@@ -137,6 +146,15 @@ function favs(e){
 }
 
 
+function loading(){
+  $('.spinner').removeClass('hidden')
+  $('.page').addClass('hidden');
+  $(".spinner").fadeOut("slow");
+  $('.page').removeClass('hidden');
+}
+
+
+
 /*********************************
 Event Listener
 *********************************/
@@ -146,6 +164,7 @@ $(document).ready(function(){
   // Listener for fullpage call to action
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
+    $(window).on('load', loading());
     $('.full-page').addClass('hidden');
     $('main').removeClass('hidden');
     var query = $(this).siblings().val();
@@ -155,6 +174,7 @@ $(document).ready(function(){
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
+    $(window).on('load', loading());
     deleteMarkers();
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
@@ -183,5 +203,8 @@ $(document).ready(function(){
       $('.favs').addClass('hidden');
     }
   })
+
+  $(window).on('load', loading());
+
 
 });
