@@ -5,6 +5,7 @@ var locations = [];
 var markerCount = 0;
 var map = null;
 var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
+var markers = [];
 
 
 /*********************************
@@ -77,7 +78,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
     map: map,
     animation: google.maps.Animation.DROP,
   });
-
+  markers.push(marker);
     
   //Gives each marker an Id for the on click
   markerCount++;
@@ -95,6 +96,22 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
   map.panTo(myLatLng)   
 
 }
+
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map)
+  };
+}
+
+function clearMarkers(){
+  setMapOnAll(null);
+}
+
+function deleteMarkers(){
+  clearMarkers();
+  markers = [];
+}
+
 
 /*********************************
 Render returned list onto list div on sidebar
@@ -135,7 +152,7 @@ $(document).ready(function(){
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
     $('.full-page').addClass('hidden');
-    $('.outer').removeClass('hidden');
+    $('main').removeClass('hidden');
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });
@@ -143,6 +160,7 @@ $(document).ready(function(){
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
+    deleteMarkers();
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });

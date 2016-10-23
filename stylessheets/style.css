@@ -1,5 +1,5 @@
 
-/****************************
+/*/****************************
 General
 ****************************/
 
@@ -28,10 +28,9 @@ main {
   position: absolute;
   right: 0;
   top: 60%;
-  bottom: 0;
+  height: 100%;
   left: 0;
   background-color: rgba(230, 115, 0, 0.9);
-/*  text-align: center;*/
 }
 
 .outer {
@@ -89,7 +88,7 @@ main {
 
 .full-submit {
   margin: 15px 0 15px 0;
-  width: 80%;
+  width: 82%;
   height: 125px;
   background-color: transparent;
   border: 10px solid lightgrey;
@@ -103,23 +102,25 @@ button.full-submit:active {
   color: rgba(230, 115, 0, 0.9);
 }
 
+
 .header {
   display: inline-block;
+  width: 35%;
   float: left;
   margin: 3px;
   padding: 10px 0 10px 0;
   font-family: 'Righteous', cursive;
   color: white;
   text-shadow: -3px 3px #000;
-  font-size: 4em;
+  font-size: 7vw;
 }
 
 .contain {
-  width: 100%:;
+  width: 100%;
 }
 
 .postalcode {
-  width: 45%;
+  width: 40%;
   height: 90px;
   margin: 8px;
   font-size: 1.0rem;
@@ -228,8 +229,41 @@ a {
   /****************************
   Form  Element Styling
   ****************************/
+  html {
+    height: 100%;
+  }
 
-  .js-postalcode {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+
+  #map {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+  }
+
+  main {
+    right: 5%;
+    top: 5%;
+    left: unset;
+    width: 25%;
+    min-width: 350px;
+    background-color: rgba(255, 255, 255, 0.0);
+  }
+
+
+  .outer {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+  }
+
+
+
+  .postalcode {
     width: 80%;
     height: 35px;
     font-size: 1.0rem;
@@ -310,10 +344,10 @@ a {
     margin: 5px 0 5px 0;
     width: 40%;
     height: 25px;
-    background-color: transparent;
     border: 2px solid lightgrey;
     font-family: 'Righteous', cursive;
-    color: lightgrey;
+    float: unset;
+    font-size: 1.0em;
   }
 
   button.add:hover {
@@ -322,13 +356,12 @@ a {
   }
 
   .delete {
-    margin: 5px 0 5px 0;
     width: 40%;
     height: 25px;
-    background-color: transparent;
     border: 2px solid rgb(128, 32, 0);
-    font-family: 'Righteous', cursive;
     color: rgb(128, 32, 0);
+    font-size: 1.0em;
+    float: unset;
   }
 
   button.delete:hover {
@@ -341,25 +374,32 @@ a {
 
   }
 
-  h3 {
-    padding: 20px 0 5px 10px;
-    font-family: 'Righteous', cursive;
-    color: white;
-    background-color: rgb(128, 32, 0);
+  .places, .list {
+    font-size: 1.0em;
   }
 
   .header {
-    margin: 0;
+    margin: auto;
+    width: 75%;
     padding: 10px 0 10px 0;
     font-family: 'Righteous', cursive;
+    font-size: 257%;
+
     color: white;
     text-shadow: -3px 3px #000;
+    float: unset;
   }
 
 
   /**********************************
   Container Styling
   **********************************/
+
+  .contain {
+    display: inline-block;
+    text-align: center;
+  }
+
   .container {
     text-align: center; 
   }
@@ -367,7 +407,6 @@ a {
   .js-list, .added {
     margin: 10px;
     border-bottom: 3px solid darkred;
-    overflow: auto;
 
   }
 
