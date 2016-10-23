@@ -97,18 +97,13 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 
 }
 
-function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map)
-  };
-}
+//These set of function deletes 
 
-function clearMarkers(){
-  setMapOnAll(null);
-}
 
 function deleteMarkers(){
-  clearMarkers();
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null)
+  };
   markers = [];
 }
 
@@ -180,7 +175,6 @@ $(document).ready(function(){
     event.preventDefault();
 
     if ($('.favs').children().length !== 2) {
-      console.log($('.favs').children().length);
       $(this).closest('.added').detach();
       event.stopPropagation();
     } else {
