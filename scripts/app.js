@@ -130,7 +130,9 @@ Event Listener
 *********************************/
 
 $(document).ready(function(){
-  $('.full-page').on('click', '.submit', function(e) {
+
+  // Listener for fullpage call to action
+  $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
     $('.full-page').addClass('hidden');
     $('.outer').removeClass('hidden');
@@ -138,13 +140,14 @@ $(document).ready(function(){
     getDataFromApi(query, displaySearchData);
   });
 
-
+  // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });
 
+  // Listener for adding to list of interest
   $('.list-container').on('click', '.add', function(event){
     event.preventDefault();
     $('.favs').removeClass('hidden');
@@ -154,6 +157,7 @@ $(document).ready(function(){
     $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>')
   })
 
+  //listener for deleting item from interest list
   $('.favs').on('click', '.delete', function(event){
     event.preventDefault();
 

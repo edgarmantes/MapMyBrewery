@@ -16,19 +16,19 @@
           <p class="full-p">Lets Drink!... Where to first?!?!</p>
           <div class="container">
             <input type="text" class="js-postalcode full-input" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
-            <button type="submit" class="submit full-submit">Click here to see whats around!</button>
+            <button type="submit" class="full-submit">Click here to see whats around!</button>
           </div>
         </div>  
-      </form>
+      </form> <!-- initially has no 'hidden' class -->
     </div>
     <main>
-      <div class="outer hidden">
-        <form class="js-search-form block">       
+      <div class="outer row hidden">   <!-- has a 'hidden' class -->
+        <form class="js-search-form block ">       
           <div class="contain">
-              <h1 class="header">Breweries</h1>
+              <h1 class="header ">Breweries</h1>
               <div class="container">
-                <input type="text" class="js-postalcode" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
-                <button type="submit" class="submit">Check It!</button>
+                <input type="text" class="js-postalcode postalcode" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
+                <button type="submit" class="submit">More!</button>
               </div>
           </div>  
         </form>
