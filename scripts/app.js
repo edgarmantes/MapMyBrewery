@@ -41,7 +41,11 @@ Callback function for BrewerDB API AJAX
 function displaySearchData(data) {
   locations = [];
   $('.js-list').remove();
-  //setMapOnAll(null);
+  console.log(data.length)
+  if (data.length === undefined){
+    $('.list-container').removeClass('hidden');
+    emptyList();
+  }
   for (var i = 0; i < data.totalResults; i++){
 
     /*****************************
@@ -138,6 +142,11 @@ function renderHtmlList(title, website){
 }
 
 
+
+function emptyList(){
+  var say = $('<h4>').addClass('list-name').append('Sorry! No breweries there... Try another place!')
+  $('.places').after(say);
+}
 
 
 /***********************************
