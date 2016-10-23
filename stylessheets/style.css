@@ -42,6 +42,10 @@ main {
   display: none;
 }
 
+.full-container {
+  max-width: 950px;
+  margin: auto;
+}
 .full-page {
   position: fixed;
   top: 0;
@@ -261,7 +265,9 @@ a {
     margin: auto;
   }
 
-
+  .full-input{
+    font-size: 80px;
+  }
 
   .postalcode {
     width: 80%;
@@ -306,6 +312,10 @@ a {
   /****************************
   Button and Text
   ****************************/
+
+  .full-submit {
+    font-size: 70px;
+  }
 
   .submit {
     margin: 15px 0 15px 0;
@@ -390,6 +400,15 @@ a {
     float: unset;
   }
 
+  .popup {
+    margin-bottom: 0;
+    font-family: 'Righteous', cursive;
+  }
+
+  .pop-p {
+    font-family: 'Economica', sans-serif;
+    font-size: 2.0em;
+  }
 
   /**********************************
   Container Styling
@@ -426,9 +445,7 @@ a {
     overflow: auto;
   }
 
-  .popup {
-    margin-bottom: 0;
-  }
+
 }  
 
 
@@ -440,7 +457,9 @@ a {
 
 
 
-
+/**********************************
+Loading page styling
+**********************************/
 
 
 .spinner {

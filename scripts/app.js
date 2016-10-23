@@ -54,8 +54,8 @@ function displaySearchData(data) {
     var organic = data.data[i].brewery.isOrganic;
     var address = data.data[i].streetAddress;
     var phone = data.data[i].phone;
-    var info = "<h1 class='popup'>" + title + "</h1><br><p>Organic: " + organic + "<br><p>" + address + "</p>" +
-              "<br><p class='pop-p'>phone:" + phone + "</p><br><a href='" + website + 
+    var info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
+              "<br><a class='pop-p' href='tel:" + phone + "'>phone:" + phone + "</><br><a href='" + website + 
               "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>"
     
 
@@ -137,14 +137,12 @@ function renderHtmlList(title, website){
   $('.places').after(listed);
 }
 
-/********************************
-Added selected in Fav List
-********************************/
 
-function favs(e){
-  console.log(e)
-}
 
+
+/***********************************
+Callback function for loading animation
+***********************************/
 
 function loading(){
   $('.spinner').removeClass('hidden')
