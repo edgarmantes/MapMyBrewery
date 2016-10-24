@@ -45,7 +45,8 @@ function displaySearchData(data) {
   $('.sorry').remove();
   if (data.data === undefined){
     $('.spinner').fadeOut('slow');
-    $('.list-container').removeClass('hidden');
+
+    $('.list-container').fadeIn('slow');
     emptyList();
   } else {
     for (var i = 0; i < data.totalResults; i++){
@@ -160,7 +161,7 @@ function renderHtmlList(title, website, index){
   var descript = $(description).append(website);
   var listed = $(list).append(descript);
 
-  $('.list-container').removeClass('hidden');
+  $('.list-container').fadeIn('slow');
   $('.places').after(listed);
 }
 
@@ -172,16 +173,6 @@ function emptyList(){
 }
 
 
-/***********************************
-Callback function for loading animation
-***********************************/
-
-// function loading(){
-//   $('.spinner').removeClass('hidden')
-//   $('.page').addClass('hidden');
-//   $(".spinner").fadeOut("slow");
-//   $('.page').removeClass('hidden');
-// }
 
 
 
@@ -195,7 +186,8 @@ $(document).ready(function(){
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
     $('.full-page').addClass('hidden');
-    $('main').removeClass('hidden');
+    $('main').fadeIn('slow');
+    //$('main').removeClass('hidden');
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });
@@ -211,7 +203,7 @@ $(document).ready(function(){
   // Listener for adding to list of interest
   $('.list-container').on('click', '.add', function(event){
     event.preventDefault();
-    $('.favs').removeClass('hidden');
+    $('.favs').fadeIn('slow');
     var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
 
     $('.favs').after().append(clone);
@@ -228,7 +220,7 @@ $(document).ready(function(){
     } else {
       $(this).closest('.added').detach();
       event.stopPropagation();
-      $('.favs').addClass('hidden');
+      $('.favs').fadeOut('slow');
     }
   })
 

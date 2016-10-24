@@ -25,6 +25,7 @@ body {
 }
 
 main {
+  display: none;
   position: absolute;
   right: 0;
   top: 60%;
@@ -209,6 +210,7 @@ a {
 .favs {
   max-height: 300px;
   overflow: auto;
+  display: none;
 }
 
 .delete {
@@ -448,6 +450,7 @@ a {
   }
 
   .list-container {
+    display: none;
     max-height: 380px;
     overflow: auto;
   }
