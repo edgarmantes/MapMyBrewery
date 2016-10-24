@@ -100,7 +100,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
   //Gives each marker an Id for the on click
   markerCount++;
 
-
+  // Triggers click listener for infoWindow in results list
   $('.list-container').on('click', '.list-name', function(){
     var numString = $(this).attr('id');
     var num = parseInt(numString)
@@ -125,7 +125,8 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
       infowindow.setContent(htmlMarkupForInfoWindow);
       infowindow.open(map, marker);
     }
-  })(marker, markerCount));  
+  })(marker, markerCount)); 
+
   
   //Pans map to the new location of the marker
   map.panTo(myLatLng)   
