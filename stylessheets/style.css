@@ -232,6 +232,16 @@ a {
   word-wrap: break-word;
 }
 
+
+.popup {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+.pop-p {
+  font-size: 3em;
+}
+
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {}
 
