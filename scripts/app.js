@@ -41,37 +41,38 @@ Callback function for BrewerDB API AJAX
 function displaySearchData(data) {
   locations = [];
   $('.js-list').remove();
-  console.log(data.length)
-  if (data.length === undefined){
+  console.log(data.data.length)
+  if (data.data.length === undefined){
     $('.list-container').removeClass('hidden');
     emptyList();
-  }
-  for (var i = 0; i < data.totalResults; i++){
+  } else {
+    for (var i = 0; i < data.totalResults; i++){
 
-    /*****************************
-    vars for addMarkerToMap()
-    *****************************/
-    var lat = data.data[i].latitude;
-    var lng = data.data[i].longitude;
-    var title = data.data[i].brewery.name;
-    var website = data.data[i].website;
-    var organic = data.data[i].brewery.isOrganic;
-    var address = data.data[i].streetAddress;
-    var phone = data.data[i].phone;
-    var info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
-              "<br><a class='pop-p' href='tel:" + phone + "'>phone:" + phone + "</><br><a href='" + website + 
-              "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>"
-    
+      /*****************************
+      vars for addMarkerToMap()
+      *****************************/
+      var lat = data.data[i].latitude;
+      var lng = data.data[i].longitude;
+      var title = data.data[i].brewery.name;
+      var website = data.data[i].website;
+      var organic = data.data[i].brewery.isOrganic;
+      var address = data.data[i].streetAddress;
+      var phone = data.data[i].phone;
+      var index = i
+      var info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
+                "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
+                "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>"
+      
 
+      /******************************
+      vars for renderHtmlList()
+      ******************************/
+      var website = data.data[i].website;
 
-    /******************************
-    vars for renderHtmlList()
-    ******************************/
-    var website = data.data[i].website;
-
-    addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
-    //renderHtmlList(title, website)
-    renderHtmlList(title, website)
+      addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
+      //renderHtmlList(title, website)
+      renderHtmlList(title, website, index)
+    }
   }
 }
 
@@ -94,9 +95,19 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
   //Gives each marker an Id for the on click
   markerCount++;
 
+
+  $('.list-container').on('click', '.list-name', function(){
+    var numString = $(this).attr('id');
+    var num = parseInt(numString)
+    console.log(markers)
+    google.maps.event.trigger(markers[num], 'click');
+
+  })
+
   //Creates the event listener for clicking the marker
   //and places the marker on the map 
   google.maps.event.addListener(marker, 'click', (function(marker, markerCount) {
+
     return function() {
       infowindow.setContent(htmlMarkupForInfoWindow);
       infowindow.open(map, marker);
@@ -125,13 +136,13 @@ function deleteMarkers(){
 Render returned list onto list div on sidebar
 *********************************/
 
-function renderHtmlList(title, website){
+function renderHtmlList(title, website, index){
 
   var list = $('<div>').addClass('js-list');
   var description = $('<div>').addClass('description description-block');
-  var listName = $('<h4>').addClass('list-name').html(title);
-  var link = $('<a>').attr('href', '#').addClass('wind') //website).attr('target', '_blank');
-  var addTo = $('<button>').addClass('add').html('Interested');
+  var listName = $('<h4>').addClass('list-name').attr('id', index).html(title);
+  var link = $('<a>').attr('href', '#').addClass('wind marker-link')
+  var addTo = $('<button>').addClass('add').html('Save To List');
 
   var website = $(link).append(listName).append(addTo);
   var descript = $(description).append(website);
