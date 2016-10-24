@@ -456,28 +456,19 @@ a {
 }  
 
 
-
-
-
-
-
-
-
-
 /**********************************
 Loading page styling
 **********************************/
 
-
 .spinner {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  padding-top: 45%;
   text-align: center;
-  background-color: rgba(230, 115, 0, 0.9);
+  background-color: rgba(230, 115, 0, 0.5);
   z-index: 10;
 }
 
@@ -485,7 +476,7 @@ Loading page styling
   width: 18px;
   height: 18px;
   background-color: #333;
-
+  margin-top: 28vw;
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;

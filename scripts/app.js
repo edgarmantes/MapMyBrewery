@@ -7,7 +7,6 @@ var map = null;
 var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
 var markers = [];
 
-
 /*********************************
 Callback function for GoogleMaps API
 *********************************/
@@ -29,7 +28,9 @@ function getDataFromApi(searchTerm, callback) {
     key: '8ea35ba681e47e9437e67134692a65b5',
     postalCode: searchTerm,    
   }
+  $('.spinner').show();  //When page is loading and AJAX is gathering info, loading screen is present
   $.getJSON(postal_search, query, callback);
+  // $('.spinner').hide();
 }
 
 
@@ -42,8 +43,8 @@ function displaySearchData(data) {
   locations = [];
   $('.js-list').remove();
   $('.sorry').remove();
-  console.log(data)
   if (data.data === undefined){
+    $('.spinner').fadeOut('slow');
     $('.list-container').removeClass('hidden');
     emptyList();
   } else {
@@ -69,8 +70,10 @@ function displaySearchData(data) {
       vars for renderHtmlList()
       ******************************/
       var website = data.data[i].website;
-
       addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
+      
+      $('.spinner').fadeOut('slow');           //Removes loading screen right before adding markers to make
+
       //renderHtmlList(title, website)
       renderHtmlList(title, website, index)
     }
@@ -173,12 +176,12 @@ function emptyList(){
 Callback function for loading animation
 ***********************************/
 
-function loading(){
-  $('.spinner').removeClass('hidden')
-  $('.page').addClass('hidden');
-  $(".spinner").fadeOut("slow");
-  $('.page').removeClass('hidden');
-}
+// function loading(){
+//   $('.spinner').removeClass('hidden')
+//   $('.page').addClass('hidden');
+//   $(".spinner").fadeOut("slow");
+//   $('.page').removeClass('hidden');
+// }
 
 
 
@@ -191,7 +194,6 @@ $(document).ready(function(){
   // Listener for fullpage call to action
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
-    $('#map').on('load', loading());
     $('.full-page').addClass('hidden');
     $('main').removeClass('hidden');
     var query = $(this).siblings().val();
@@ -201,7 +203,6 @@ $(document).ready(function(){
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
-    $('.page').on('load', loading());
     deleteMarkers();
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
@@ -231,7 +232,7 @@ $(document).ready(function(){
     }
   })
 
-  $(window).on('load', loading());
-
+  // $(window).on('load', loading());
+  $('.spinner').hide();
 
 });
