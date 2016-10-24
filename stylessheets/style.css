@@ -223,6 +223,13 @@ a {
   float: right;
 }
 
+.sorry {
+  margin-left: 10px;
+  max-width: 300px;
+  overflow: none;
+  word-wrap: break-word;
+}
+
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {}
 

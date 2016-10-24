@@ -41,8 +41,9 @@ Callback function for BrewerDB API AJAX
 function displaySearchData(data) {
   locations = [];
   $('.js-list').remove();
-  console.log(data.data.length)
-  if (data.data.length === undefined){
+  $('.sorry').remove();
+  console.log(data)
+  if (data.data === undefined){
     $('.list-container').removeClass('hidden');
     emptyList();
   } else {
@@ -104,6 +105,14 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 
   })
 
+    $('.favs').on('click', '.list-name', function(){
+    var numString = $(this).attr('id');
+    var num = parseInt(numString)
+    console.log(markers)
+    google.maps.event.trigger(markers[num], 'click');
+
+  })
+
   //Creates the event listener for clicking the marker
   //and places the marker on the map 
   google.maps.event.addListener(marker, 'click', (function(marker, markerCount) {
@@ -155,7 +164,7 @@ function renderHtmlList(title, website, index){
 
 
 function emptyList(){
-  var say = $('<h4>').addClass('list-name').append('Sorry! No breweries there... Try another place!')
+  var say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
   $('.places').after(say);
 }
 
@@ -182,7 +191,7 @@ $(document).ready(function(){
   // Listener for fullpage call to action
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
-    $(window).on('load', loading());
+    $('#map').on('load', loading());
     $('.full-page').addClass('hidden');
     $('main').removeClass('hidden');
     var query = $(this).siblings().val();
@@ -192,7 +201,7 @@ $(document).ready(function(){
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
-    $(window).on('load', loading());
+    $('.page').on('load', loading());
     deleteMarkers();
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
