@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>Map My Beer Run</title>
+  <link rel="stylesheet" type="text/css" href="stylessheets/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Economica|Righteous" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="build/brewerymap.1.0.0.css">
+  </head>
+  <body>
+    <div class="spinner">  <!-- loading page div -->
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+    <div id="map"></div>
+    <div class="page">
+      <div class="full-page">  <!-- initially has no 'hidden' class -->
+        <div class="full-container">
+          <form class="js-search-form full-form ">       
+            <div class="contain">
+              <h1 class="head">Breweries</h1>
+              <p class="full-p">Lets Drink!... Where to first?!?!</p>
+              <div class="container">
+                <input type="text" class="js-postalcode full-input" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
+                <button type="submit" class="full-submit">Click here to see whats around!</button>
+              </div>
+            </div>  
+          </form>
+        </div> 
+      </div>
+      <main class="">    <!-- has a 'hidden' class -->
+        <div class="outer">   
+          <form class="js-search-form block ">       
+            <div class="contain">
+                <h1 class="header ">Breweries</h1>
+                <div class="container">
+                  <input type="text" class="js-postalcode postalcode" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
+                  <button type="submit" class="submit">More!</button>
+                </div>
+            </div>  
+          </form>
+          <div class="menu-side">    
+            <div class="list-container hidden block">          
+                <h3 class="places">Look at these places:</h3> 
+            </div>
+            <div class="favs listed hidden block ">
+              <h3 class="list">Favs List:</h3>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="text/javascript" src="build/brewerymap.1.0.0.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwWCqLaGAIeL6IIlOjvQQbwHVxiPF5M-Q&callback=initMap">
+    </script>
+  </body>
+</html>

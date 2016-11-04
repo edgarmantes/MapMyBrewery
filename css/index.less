@@ -1,0 +1,522 @@
+
+/*/****************************
+General
+****************************/
+
+* {
+  outline-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+}
+
+main {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 60%;
+  height: 100%;
+  left: 0;
+  background-color: rgba(230, 115, 0, 0.9) brown;
+}
+
+.outer {
+  width: 100%;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.full-container {
+  max-width: 950px;
+  margin: auto;
+}
+.full-page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(230, 115, 0, 0.9);
+  text-align: center;
+}
+
+
+.full-form {
+  margin-top: 25%;
+}
+
+
+.head {
+  margin: 0;
+  padding: 10px 0 10px 0;
+  font-family: 'Righteous', cursive;
+  color: white;
+  text-shadow: -7px 5px #000;
+  font-size: 8.0rem;
+}
+
+.full-p {
+  font-size: 5.0rem;
+  margin: 0 0 20px 0;
+  font-family: 'Economica', sans-serif;
+}
+
+.full-input {
+  width: 82%;
+  height: 100px;
+  font-size: 1.0rem;
+  color: white;
+  border: 10px solid white;
+  background-color: transparent;
+  font-family: 'Economica', sans-serif;
+  font-size: 7.0vw;
+  text-align: center;
+  outline-width: 0;
+}
+
+.full-submit {
+  margin: 15px 0 15px 0;
+  width: 82%;
+  height: 125px;
+  background-color: transparent;
+  border: 10px solid lightgrey;
+  color: lightgrey;
+  font-family: 'Economica', sans-serif;
+  font-size: 7.0vw;
+}
+
+button.full-submit:active {
+  background-color: lightgrey;
+  color: rgba(230, 115, 0, 0.9);
+}
+
+
+.header {
+  display: inline-block;
+  width: 35%;
+  float: left;
+  margin: 3px;
+  padding: 10px 0 10px 0;
+  font-family: 'Righteous', cursive;
+  color: white;
+  text-shadow: -3px 3px #000;
+  font-size: 7vw;
+}
+
+.contain {
+  width: 100%;
+}
+
+.postalcode {
+  width: 40%;
+  height: 90px;
+  margin: 8px;
+  font-size: 1.0rem;
+  color: white;
+  border: 5px solid white;
+  background-color: transparent;
+  font-family: 'Economica', sans-serif;
+  font-size: 5.0vw;
+  text-align: center;
+  outline-width: 0;
+}
+
+.submit {
+  margin: 12px 8px 5px 8px;
+  width: 18%;
+  height: 90px;
+  background-color: transparent;
+  border: 5px solid lightgrey;
+  color: lightgrey;
+  font-family: 'Economica', sans-serif;
+  font-size: 5.0vw;
+}
+
+.places, .list {
+  background-color: rgb(128, 32, 0);
+  margin: 2px;
+  padding: 10px;
+  font-family: 'Righteous', cursive;
+  color: white;
+  font-size: 1.8em;
+
+}
+
+.js-list, .added {
+  margin: 10px;
+  border-bottom: 3px solid darkred;
+  overflow: auto;  
+}
+
+.description-block {
+  display: inline-block;
+  padding: 5px 0 5px;
+}
+
+.description {
+  width: 100%;
+  padding-left: 5px;
+  float: left;
+}
+
+.list-name {
+  display: inline-block;
+  font-size: 3.0em;
+  text-decoration: none;
+  color: black;
+  padding: 10px 0 5px 0;
+  width: 65%;
+  font-family: 'Economica', sans-serif;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.add {
+  margin: 5px 0 5px 0;
+  width: 30%;
+  height: 70px;
+  background-color: transparent;
+  border: 10px solid lightgrey;
+  font-family: 'Righteous', cursive;
+  font-size: 2.0em;
+  color: lightgrey;
+  float: right;
+}
+
+.listed {
+  background-color: rgba(255, 255, 179, 0.8);
+}
+
+.favs {
+  max-height: 300px;
+  overflow: auto;
+  display: none;
+}
+
+.delete {
+  margin: 5px 0 5px 0;
+  width: 30%;
+  height: 70px;
+  background-color: transparent;
+  border: 10px solid rgb(128, 32, 0);
+  font-family: 'Righteous', cursive;
+  font-size: 2.0em;
+  color: rgb(128, 32, 0);
+  float: right;
+}
+
+.sorry {
+  margin-left: 10px;
+  max-width: 300px;
+  overflow: none;
+  word-wrap: break-word;
+}
+
+
+.popup {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+.pop-p {
+  font-size: 3em;
+}
+
+/*for iPads and Tablets*/
+@media only screen and (min-width: 1030px) {}
+
+@media only screen and (min-width: 1030px) {}
+
+
+@media only screen and (min-width: 1030px) {
+  /****************************
+  Form  Element Styling
+  ****************************/
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+
+  #map {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+  }
+
+  main {
+    right: 5%;
+    top: 5%;
+    left: unset;
+    width: 25%;
+    min-width: 350px;
+    background-color: rgba(255, 255, 255, 0.0);
+  }
+
+
+  .outer {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+  }
+
+  .full-input{
+    font-size: 80px;
+  }
+
+  .postalcode {
+    width: 80%;
+    height: 35px;
+    font-size: 1.0rem;
+    color: white;
+    border: 2px solid white;
+    background-color: transparent;
+    font-family: 'Economica', sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    outline-width: 0;
+  }
+
+
+  /****************************
+  Result list container
+  ****************************/
+
+  .description-block {
+    display: inline-block;
+    padding: 5px 0 5px;
+  }
+
+  .description {
+    width: 100%;
+    padding-left: 5px;
+    float: left;
+  }
+
+
+
+  /****************************
+  Favs List container
+  ****************************/
+
+  .favs {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  /****************************
+  Button and Text
+  ****************************/
+
+  .full-submit {
+    font-size: 70px;
+  }
+
+  .submit {
+    margin: 15px 0 15px 0;
+    width: 80%;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    font-family: 'Economica', sans-serif;
+    font-size: 2.0vw;
+  }
+
+  button.submit:hover {
+    background-color: lightgrey;
+    color: rgba(230, 115, 0, 0.9);
+  }
+
+  .list-name {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    padding: 10px 0 5px 0;
+    width: 100%;
+    font-family: 'Economica', sans-serif;
+
+  }
+
+  h4.list-name:hover {
+    font-size: 32px;
+    color: blue;
+    padding: none;
+  }
+
+
+  .add {
+    margin: 5px 0 5px 0;
+    width: 40%;
+    height: 25px;
+    border: 2px solid lightgrey;
+    font-family: 'Righteous', cursive;
+    float: unset;
+    font-size: 1.0em;
+  }
+
+  button.add:hover {
+    background-color: lightgrey;
+    color: rgba(230, 115, 0, 0.9) ;
+  }
+
+  .delete {
+    width: 40%;
+    height: 25px;
+    border: 2px solid rgb(128, 32, 0);
+    color: rgb(128, 32, 0);
+    font-size: 1.0em;
+    float: unset;
+  }
+
+  button.delete:hover {
+    background-color: rgb(128, 32, 0);
+    color: rgba(255, 255, 179, 0.8);
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+
+  .places, .list {
+    font-size: 1.0em;
+  }
+
+  .header {
+    margin: auto;
+    width: 75%;
+    padding: 10px 0 10px 0;
+    font-family: 'Righteous', cursive;
+    font-size: 257%;
+
+    color: white;
+    text-shadow: -3px 3px #000;
+    float: unset;
+  }
+
+  .popup {
+    margin-bottom: 0;
+    font-family: 'Righteous', cursive;
+  }
+
+  .pop-p {
+    font-family: 'Economica', sans-serif;
+    font-size: 2.0em;
+  }
+
+  /**********************************
+  Container Styling
+  **********************************/
+
+  .contain {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .container {
+    text-align: center; 
+  }
+
+  .js-list, .added {
+    margin: 10px;
+    border-bottom: 3px solid darkred;
+
+  }
+
+  .block {
+    background-color: rgba(230, 115, 0, 0.9);
+    box-shadow: 4px 4px 10px 4px grey;
+    margin: 10px;
+    padding: 1px;
+  }
+
+  .listed {
+    background-color: rgba(255, 255, 179, 0.8);
+  }
+
+  .list-container {
+    display: none;
+    max-height: 380px;
+    overflow: auto;
+  }
+
+
+}  
+
+
+/**********************************
+Loading page styling
+**********************************/
+
+.spinner {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(230, 115, 0, 0.5);
+  z-index: 10;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+  margin-top: 28vw;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
