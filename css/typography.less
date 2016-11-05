@@ -1,0 +1,200 @@
+
+
+.full-page {
+  text-align: center;
+}
+
+.head {
+  font-family: @right;
+  color: white;
+  text-shadow: -7px 5px #000;
+  font-size: 8.0rem;
+}
+
+.full-p {
+  font-size: 5.0rem;
+  font-family: @eco;
+}
+
+.full-input {
+  color: white;
+  font-family: @eco;
+  font-size: 7.0vw;
+  text-align: center;
+}
+
+.full-submit {
+  color: lightgrey;
+  font-family: @eco;
+  font-size: 7.0vw;
+  &:active {
+    color: rgba(230, 115, 0, 0.9);
+  };
+}
+
+
+.header {
+  font-family: @right;
+  color: white;
+  text-shadow: -3px 3px #000;
+  font-size: 7vw;
+}
+
+.postalcode {
+  font-family: @eco;
+  font-size: 5.0vw;
+  text-align: center;
+}
+
+.submit {
+  color: lightgrey;
+  font-family: @eco;
+  font-size: 5.0vw;
+}
+
+.places, .list {
+  font-family: @right;
+  color: white;
+  font-size: 1.8em;
+}
+
+.list-name {
+  font-size: 3.0em;
+  text-decoration: none;
+  color: black;
+  font-family: @eco;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.add {
+  font-family: @right;
+  font-size: 2.0em;
+}
+
+.delete {
+  font-family: @right;
+  font-size: 2.0em;
+  color: rgb(128, 32, 0);
+}
+
+.popup {
+  font-size: 4em;
+}
+
+.pop-p {
+  font-size: 3em;
+}
+
+/*for iPads and Tablets*/
+
+
+@media only screen and (min-width: 1030px) {
+  /****************************
+  Form  Element Styling
+  ****************************/
+
+
+  .full-input{
+    font-size: 80px;
+  }
+
+  .postalcode {
+    font-family: @eco;
+    font-size: 1.5vw;
+    text-align: center;
+  }
+
+
+  /****************************
+  Button and Text
+  ****************************/
+
+  .full-submit {
+    font-size: 70px;
+  }
+
+  .submit {
+    color: lightgrey;
+    font-family: @eco;
+    font-size: 2.0vw;
+	&:hover {
+	  color: rgba(230, 115, 0, 0.9);
+	}
+  }
+
+  .list-name {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    font-family: @eco;
+	&:hover {
+	  font-size: 32px;
+	  color: blue;
+	  padding: none;
+	}
+  }
+
+  .add {
+    font-family: @right;
+    float: unset;
+    font-size: 1.0em;
+    &:hover {
+      color: rgba(230, 115, 0, 0.9) ;
+    };
+  }
+
+
+  .delete {
+    color: rgb(128, 32, 0);
+    font-size: 1.0em;
+    &:hover {
+      color: rgba(255, 255, 179, 0.8);
+    }
+  }
+
+
+
+  a {
+    text-decoration: none;
+
+  }
+
+  .places, .list {
+    font-size: 1.0em;
+  }
+
+  .header {
+    font-family: @right;
+    font-size: 257%;
+    color: white;
+    text-shadow: -3px 3px #000;
+  }
+
+  .popup {
+    font-family: @right;
+  }
+
+  .pop-p {
+    font-family: @eco;
+    font-size: 2.0em;
+  }
+
+  /**********************************
+  Container Styling
+  **********************************/
+
+  .contain {
+    text-align: center;
+  }
+
+  .container {
+    text-align: center; 
+  }
+
+
+}  
+

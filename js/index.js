@@ -29,6 +29,7 @@ function getDataFromApi(searchTerm, callback) {
     key: '8ea35ba681e47e9437e67134692a65b5',
     postalCode: searchTerm,    
   }
+  console.log("inside")
   $('.spinner').show();  //When page is loading and AJAX is gathering info, loading screen is present
   $.getJSON(postal_search, query, callback);
   // $('.spinner').hide();
