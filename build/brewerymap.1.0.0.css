@@ -1,3 +1,10 @@
+/*****************************
+mixins
+******************************/
+.backTrans {
+  background-color: transparent;
+}
+/*****************************/
 #map {
   background-color: grey;
 }
@@ -15,9 +22,6 @@ main {
 }
 .full-submit:active {
   background-color: lightgrey;
-}
-.contain {
-  width: 100%;
 }
 .postalcode {
   background-color: transparent;
@@ -86,67 +90,67 @@ main {
   text-align: center;
 }
 .head {
+  font-size: 8.0rem;
   font-family: 'Righteous', cursive;
   color: white;
   text-shadow: -7px 5px #000;
-  font-size: 8.0rem;
 }
 .full-p {
   font-size: 5.0rem;
   font-family: 'Economica', sans-serif;
 }
 .full-input {
-  color: white;
-  font-family: 'Economica', sans-serif;
   font-size: 7.0vw;
+  font-family: 'Economica', sans-serif;
+  color: white;
   text-align: center;
 }
 .full-submit {
-  color: lightgrey;
-  font-family: 'Economica', sans-serif;
   font-size: 7.0vw;
+  font-family: 'Economica', sans-serif;
+  color: lightgrey;
 }
 .full-submit:active {
   color: rgba(230, 115, 0, 0.9);
 }
 .header {
+  font-size: 7vw;
   font-family: 'Righteous', cursive;
   color: white;
   text-shadow: -3px 3px #000;
-  font-size: 7vw;
 }
 .postalcode {
-  font-family: 'Economica', sans-serif;
   font-size: 5.0vw;
+  font-family: 'Economica', sans-serif;
   text-align: center;
 }
 .submit {
-  color: lightgrey;
-  font-family: 'Economica', sans-serif;
   font-size: 5.0vw;
+  font-family: 'Economica', sans-serif;
+  color: lightgrey;
 }
 .places,
 .list {
+  font-size: 1.8em;
   font-family: 'Righteous', cursive;
   color: white;
-  font-size: 1.8em;
 }
 .list-name {
   font-size: 3.0em;
-  text-decoration: none;
-  color: black;
   font-family: 'Economica', sans-serif;
+  color: black;
+  text-decoration: none;
 }
 a {
   text-decoration: none;
 }
 .add {
-  font-family: 'Righteous', cursive;
   font-size: 2.0em;
+  font-family: 'Righteous', cursive;
 }
 .delete {
-  font-family: 'Righteous', cursive;
   font-size: 2.0em;
+  font-family: 'Righteous', cursive;
   color: #802000;
 }
 .popup {
@@ -164,8 +168,8 @@ a {
     font-size: 80px;
   }
   .postalcode {
-    font-family: 'Economica', sans-serif;
     font-size: 1.5vw;
+    font-family: 'Economica', sans-serif;
     text-align: center;
   }
   /****************************
@@ -175,18 +179,18 @@ a {
     font-size: 70px;
   }
   .submit {
-    color: lightgrey;
-    font-family: 'Economica', sans-serif;
     font-size: 2.0vw;
+    font-family: 'Economica', sans-serif;
+    color: lightgrey;
   }
   .submit:hover {
     color: rgba(230, 115, 0, 0.9);
   }
   .list-name {
     font-size: 30px;
-    text-decoration: none;
-    color: black;
     font-family: 'Economica', sans-serif;
+    color: black;
+    text-decoration: none;
   }
   .list-name:hover {
     font-size: 32px;
@@ -194,16 +198,16 @@ a {
     padding: none;
   }
   .add {
+    font-size: 1.0em;
     font-family: 'Righteous', cursive;
     float: unset;
-    font-size: 1.0em;
   }
   .add:hover {
     color: rgba(230, 115, 0, 0.9);
   }
   .delete {
-    color: #802000;
     font-size: 1.0em;
+    color: #802000;
   }
   .delete:hover {
     color: rgba(255, 255, 179, 0.8);
@@ -216,8 +220,8 @@ a {
     font-size: 1.0em;
   }
   .header {
-    font-family: 'Righteous', cursive;
     font-size: 257%;
+    font-family: 'Righteous', cursive;
     color: white;
     text-shadow: -3px 3px #000;
   }
@@ -225,8 +229,8 @@ a {
     font-family: 'Righteous', cursive;
   }
   .pop-p {
-    font-family: 'Economica', sans-serif;
     font-size: 2.0em;
+    font-family: 'Economica', sans-serif;
   }
   /**********************************
   Container Styling
@@ -287,9 +291,7 @@ main {
   padding: 10px 0 10px 0;
 }
 .full-p {
-  font-size: 5.0rem;
   margin: 0 0 20px 0;
-  font-family: 'Economica', sans-serif;
 }
 .full-input {
   width: 82%;

@@ -1,4 +1,13 @@
+/*****************************
+mixins
+******************************/
+.backTrans {
+  background-color: transparent;
+}
 
+
+
+/*****************************/
 
 #map {
   background-color: grey;
@@ -13,26 +22,22 @@ main {
 }
 
 .full-input {
-  background-color: transparent;
+  .backTrans;
 }
 
 .full-submit {
-  background-color: transparent;
+  .backTrans;
   &:active {
     background-color: lightgrey;
   };
 }
 
-.contain {
-  width: 100%;
-}
-
 .postalcode {
-  background-color: transparent;
+  .backTrans;
 }
 
 .submit {
-  background-color: transparent;
+  .backTrans;
 }
 
 .places, .list {
@@ -40,7 +45,7 @@ main {
 }
 
 .add {
-  background-color: transparent;
+  .backTrans;
 }
 
 .listed {
@@ -48,7 +53,7 @@ main {
 }
 
 .delete {
-  background-color: transparent;
+  .backTrans;
 }
 
 /*for iPads and Tablets*/
@@ -68,7 +73,7 @@ main {
   }
 
   .postalcode {
-    background-color: transparent;
+    .backTrans;
   }
 
 
@@ -78,7 +83,7 @@ main {
 
   .submit {
 
-    background-color: transparent;
+    .backTrans;
     &:hover {
       background-color: lightgrey;
     }

@@ -1,19 +1,19 @@
-var $ = require('jquery')
+const $ = require('jquery')
 /**********************************
 Global variables
 **********************************/
-var locations = [];
-var markerCount = 0;
-var map = null;
-var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
-var markers = [];
+let locations = [];
+let markerCount = 0;
+let map = null;
+const postal_search = 'https://dry-savannah-42122.herokuapp.com/';
+let markers = [];
 
 /*********************************
 Callback function for GoogleMaps API
 *********************************/
 
 function initMap() {
-  var uluru = {lat: 41.8781, lng: -87.6298};
+  const uluru = {lat: 41.8781, lng: -87.6298};
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: uluru
@@ -25,7 +25,7 @@ BreweryDB API Code
 **********************************/
 
 function getDataFromApi(searchTerm, callback) {
-  var query = {
+  let query = {
     key: '8ea35ba681e47e9437e67134692a65b5',
     postalCode: searchTerm,    
   }
@@ -56,15 +56,15 @@ function displaySearchData(data) {
       /*****************************
       vars for addMarkerToMap()
       *****************************/
-      var lat = data.data[i].latitude;
-      var lng = data.data[i].longitude;
-      var title = data.data[i].brewery.name;
-      var website = data.data[i].website;
-      var organic = data.data[i].brewery.isOrganic;
-      var address = data.data[i].streetAddress;
-      var phone = data.data[i].phone;
-      var index = i;
-      var info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
+      let lat = data.data[i].latitude;
+      let lng = data.data[i].longitude;
+      let title = data.data[i].brewery.name;
+      let website = data.data[i].website;
+      let organic = data.data[i].brewery.isOrganic;
+      let address = data.data[i].streetAddress;
+      let phone = data.data[i].phone;
+      let index = i;
+      let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
                 "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
                 "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>";
       
@@ -72,12 +72,10 @@ function displaySearchData(data) {
       /******************************
       vars for renderHtmlList()
       ******************************/
-      var website = data.data[i].website;
       addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
       
       $('.spinner').fadeOut('slow');           //Removes loading screen right before adding markers to make
 
-      //renderHtmlList(title, website)
       renderHtmlList(title, website, index)
     }
   }
@@ -90,9 +88,9 @@ function that renders new markers to the map
 *********************************/
 
 function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
-  var infowindow = new google.maps.InfoWindow();
-  var myLatLng = new google.maps.LatLng(lat, long);
-  var marker = new google.maps.Marker({
+  let infowindow = new google.maps.InfoWindow();
+  let myLatLng = new google.maps.LatLng(lat, long);
+  let marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
     animation: google.maps.Animation.DROP,
@@ -104,16 +102,16 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 
   // Triggers click listener for infoWindow in results list
   $('.list-container').on('click', '.list-name', function(){
-    var numString = $(this).attr('id');
-    var num = parseInt(numString)
+    let numString = $(this).attr('id');
+    let num = parseInt(numString)
     console.log(markers)
     google.maps.event.trigger(markers[num], 'click');
 
   })
 
     $('.favs').on('click', '.list-name', function(){
-    var numString = $(this).attr('id');
-    var num = parseInt(numString)
+    let numString = $(this).attr('id');
+    let num = parseInt(numString)
     console.log(markers)
     google.maps.event.trigger(markers[num], 'click');
 
@@ -141,7 +139,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 Deletes all markers on the map after submitting new zip code query
 *****************************************/
 function deleteMarkers(){
-  for (var i = 0; i < markers.length; i++) {
+  for (let i = 0; i < markers.length; i++) {
     markers[i].setMap(null)
   };
   markers = [];
@@ -154,15 +152,15 @@ Render returned list onto list div on sidebar
 
 function renderHtmlList(title, website, index){
 
-  var list = $('<div>').addClass('js-list');
-  var description = $('<div>').addClass('description description-block');
-  var listName = $('<h4>').addClass('list-name').attr('id', index).html(title);
-  var link = $('<a>').attr('href', '#').addClass('wind marker-link')
-  var addTo = $('<button>').addClass('add').html('Save To List');
+  let list = $('<div>').addClass('js-list');
+  let description = $('<div>').addClass('description description-block');
+  let listName = $('<h4>').addClass('list-name').attr('id', index).html(title);
+  let link = $('<a>').attr('href', '#').addClass('wind marker-link')
+  let addTo = $('<button>').addClass('add').html('Save To List');
 
-  var website = $(link).append(listName).append(addTo);
-  var descript = $(description).append(website);
-  var listed = $(list).append(descript);
+  let web = $(link).append(listName).append(addTo);
+  let descript = $(description).append(web);
+  let listed = $(list).append(descript);
 
   $('.list-container').fadeIn('slow');
   $('.places').after(listed);
@@ -171,7 +169,7 @@ function renderHtmlList(title, website, index){
 
 
 function emptyList(){
-  var say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
+  let say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
   $('.places').after(say);
 }
 

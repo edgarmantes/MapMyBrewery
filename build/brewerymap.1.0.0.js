@@ -115,12 +115,10 @@
 	      /******************************
 	      vars for renderHtmlList()
 	      ******************************/
-	      var website = data.data[i].website;
 	      addMarkerToMap(lat, lng, info); //Adds a marker for each returned object
 	
 	      $('.spinner').fadeOut('slow'); //Removes loading screen right before adding markers to make
 	
-	      //renderHtmlList(title, website)
 	      renderHtmlList(title, website, index);
 	    }
 	  }
@@ -194,8 +192,8 @@
 	  var link = $('<a>').attr('href', '#').addClass('wind marker-link');
 	  var addTo = $('<button>').addClass('add').html('Save To List');
 	
-	  var website = $(link).append(listName).append(addTo);
-	  var descript = $(description).append(website);
+	  var web = $(link).append(listName).append(addTo);
+	  var descript = $(description).append(web);
 	  var listed = $(list).append(descript);
 	
 	  $('.list-container').fadeIn('slow');
