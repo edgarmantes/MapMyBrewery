@@ -55,6 +55,16 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwWCqLaGAIeL6IIlOjvQQbwHVxiPF5M-Q&callback=initMap">
     </script>
+    <script> 
+        function initMap() {
+          const start = {lat: 41.8781, lng: -87.6298};
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: start
+          });
+        } 
+        let map = null;
+    </script>
     <script type="text/javascript" src="build/brewerymap.1.0.0.js"></script>
   </body>
 </html>

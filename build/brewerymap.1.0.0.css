@@ -9,7 +9,7 @@ mixins
   background-color: grey;
 }
 main {
-  background-color: rgba(230, 115, 0, 0.9) brown;
+  background-color: rgba(230, 115, 0, 0.9);
 }
 .full-page {
   background-color: rgba(230, 115, 0, 0.9);
@@ -522,11 +522,9 @@ Loading page styling
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 .spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 .spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
 @-webkit-keyframes sk-bouncedelay {

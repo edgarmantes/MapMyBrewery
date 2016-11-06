@@ -50,23 +50,16 @@
 	/**********************************
 	Global variables
 	**********************************/
+	
 	var locations = [];
 	var markerCount = 0;
-	var map = null;
+	
 	var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
 	var markers = [];
 	
 	/*********************************
 	Callback function for GoogleMaps API
 	*********************************/
-	
-	function initMap() {
-	  var uluru = { lat: 41.8781, lng: -87.6298 };
-	  map = new google.maps.Map(document.getElementById('map'), {
-	    zoom: 13,
-	    center: uluru
-	  });
-	}
 	
 	/**********************************
 	BreweryDB API Code
@@ -77,7 +70,6 @@
 	    key: '8ea35ba681e47e9437e67134692a65b5',
 	    postalCode: searchTerm
 	  };
-	  console.log("inside");
 	  $('.spinner').show(); //When page is loading and AJAX is gathering info, loading screen is present
 	  $.getJSON(postal_search, query, callback);
 	  // $('.spinner').hide();
@@ -166,6 +158,7 @@
 	    };
 	  }(marker, markerCount));
 	
+	  console.log(map);
 	  //Pans map to the new location of the marker
 	  map.panTo(myLatLng);
 	}
