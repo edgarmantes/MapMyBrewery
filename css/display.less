@@ -1,0 +1,317 @@
+
+
+* {
+  outline-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 60%;
+  height: 100%;
+  left: 0;
+}
+
+.outer {
+  width: 100%;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.full-container {
+  max-width: 950px;
+  margin: auto;
+}
+.full-page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.full-form {
+  margin-top: 25%;
+}
+
+
+.head {
+  margin: 0;
+  padding: 10px 0 10px 0;
+}
+
+.full-p {
+  margin: 0 0 20px 0;
+}
+
+.full-input {
+  width: 82%;
+  height: 100px;
+  outline-width: 0;
+  border: 10px solid white;
+}
+
+.full-submit {
+  margin: 15px 0 15px 0;
+  width: 82%;
+  height: 125px;
+  border: 10px solid lightgrey;
+}
+
+
+.header {
+  display: inline-block;
+  width: 35%;
+  float: left;
+  margin: 3px;
+  padding: 10px 0 10px 0;
+}
+
+.contain {
+  width: 100%;
+}
+
+.postalcode {
+  width: 40%;
+  height: 90px;
+  margin: 8px;
+  outline-width: 0;
+  border: 5px solid white;
+}
+
+.submit {
+  margin: 12px 8px 5px 8px;
+  width: 18%;
+  height: 90px;
+  border: 5px solid lightgrey;
+}
+
+.places, .list {
+  margin: 2px;
+  padding: 10px;
+}
+
+.js-list, .added {
+  margin: 10px;
+  border-bottom: 3px solid darkred;
+  overflow: auto;  
+}
+
+.description-block {
+  display: inline-block;
+  padding: 5px 0 5px;
+}
+
+.description {
+  width: 100%;
+  padding-left: 5px;
+  float: left;
+}
+
+.list-name {
+  display: inline-block;
+  padding: 10px 0 5px 0;
+  width: 65%;
+}
+
+.add {
+  margin: 5px 0 5px 0;
+  width: 30%;
+  height: 70px;
+  float: right;
+  border: 10px solid lightgrey;
+}
+
+.favs {
+  max-height: 300px;
+  overflow: auto;
+  display: none;
+}
+
+.delete {
+  margin: 5px 0 5px 0;
+  width: 30%;
+  height: 70px;
+  float: right;
+  border: 10px solid rgb(128, 32, 0);
+}
+
+.sorry {
+  margin-left: 10px;
+  max-width: 300px;
+  overflow: none;
+  word-wrap: break-word;
+}
+
+
+.popup {
+  margin-bottom: 0;
+}
+
+/*for iPads and Tablets*/
+
+
+@media only screen and (min-width: 1030px) {
+  /****************************
+  Form  Element Styling
+  ****************************/
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+
+  #map {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+  }
+
+  main {
+    right: 5%;
+    top: 5%;
+    left: unset;
+    width: 25%;
+    min-width: 350px;
+  }
+
+
+  .outer {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+  }
+
+  .postalcode {
+    width: 80%;
+    height: 35px;
+    outline-width: 0;
+    border: 2px solid white;
+  }
+
+
+  /****************************
+  Result list container
+  ****************************/
+
+  .description-block {
+    display: inline-block;
+    padding: 5px 0 5px;
+  }
+
+  .description {
+    width: 100%;
+    padding-left: 5px;
+    float: left;
+  }
+
+
+
+  /****************************
+  Favs List container
+  ****************************/
+
+  .favs {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  /****************************
+  Button and Text
+  ****************************/
+
+  .submit {
+    margin: 15px 0 15px 0;
+    width: 80%;
+    height: 50px;
+    border: 2px solid lightgrey;
+  }
+
+  .list-name {
+    padding: 10px 0 5px 0;
+    width: 100%;
+	&:hover {
+	  padding: none;
+	}
+
+  }
+
+  .add {
+    margin: 5px 0 5px 0;
+    width: 40%;
+    height: 25px;
+    border: 2px solid lightgrey;
+  }
+
+
+  .delete {
+    width: 40%;
+    height: 25px;
+    border: 2px solid rgb(128, 32, 0);
+  }
+
+  .header {
+    margin: auto;
+    width: 75%;
+    padding: 10px 0 10px 0;
+    float: unset;
+  }
+
+  .popup {
+    margin-bottom: 0;
+  }
+
+  /**********************************
+  Container Styling
+  **********************************/
+
+  .contain {
+    display: inline-block;
+  }
+
+  .js-list, .added {
+    margin: 10px;
+    border-bottom: 3px solid darkred;
+
+  }
+
+  .block {
+    background-color: rgba(230, 115, 0, 0.9);
+    box-shadow: 4px 4px 10px 4px grey;
+    margin: 10px;
+    padding: 1px;
+  }
+
+  .list-container {
+    display: none;
+    max-height: 380px;
+    overflow: auto;
+  }
+
+
+}  
