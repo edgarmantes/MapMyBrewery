@@ -1,0 +1,129 @@
+/*****************************
+mixins
+******************************/
+.backTrans {
+  background-color: transparent;
+}
+
+
+
+/*****************************/
+
+#map {
+  background-color: grey;
+}
+
+main {
+  background-color: rgba(230, 115, 0, 0.9);
+}
+
+.full-page {
+  background-color: rgba(230, 115, 0, 0.9);
+}
+
+.full-input {
+  .backTrans;
+}
+
+.full-submit {
+  .backTrans;
+  &:active {
+    background-color: lightgrey;
+  };
+}
+
+.postalcode {
+  .backTrans;
+}
+
+.submit {
+  .backTrans;
+}
+
+.places, .list {
+  background-color: rgb(128, 32, 0);
+}
+
+.add {
+  .backTrans;
+}
+
+.listed {
+  background-color: rgba(255, 255, 179, 0.8);
+}
+
+.delete {
+  .backTrans;
+}
+
+/*for iPads and Tablets*/
+
+
+@media only screen and (min-width: 1030px) {
+  /****************************
+  Form  Element Styling
+  ****************************/
+
+  #map {
+    background-color: grey;
+  }
+
+  main {
+    background-color: rgba(255, 255, 255, 0.0);
+  }
+
+  .postalcode {
+    .backTrans;
+  }
+
+
+  /****************************
+  Button and Text
+  ****************************/
+
+  .submit {
+
+    .backTrans;
+    &:hover {
+      background-color: lightgrey;
+    }
+  }
+
+  .add {
+
+    &:hover {
+      background-color: lightgrey;
+    };
+  }
+
+
+  .delete {
+
+    &:hover {
+      background-color: rgb(128, 32, 0);
+    }
+  }
+
+
+
+  /**********************************
+  Container Styling
+  **********************************/
+
+  .js-list, .added {
+    border-bottom: 3px solid darkred;
+
+  }
+
+  .block {
+    background-color: rgba(230, 115, 0, 0.9);
+    box-shadow: 4px 4px 10px 4px grey;
+  }
+
+  .listed {
+    background-color: rgba(255, 255, 179, 0.8);
+  }
+
+
+}  
+
