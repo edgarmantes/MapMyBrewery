@@ -57,14 +57,13 @@
     </script>
     <script> 
         function initMap() {
-          const uluru = {lat: 41.8781, lng: -87.6298};
+          const start = {lat: 41.8781, lng: -87.6298};
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
-            center: uluru
+            center: start
           });
         } 
-
-        
+        let map = null;
     </script>
     <script type="text/javascript" src="build/brewerymap.1.0.0.js"></script>
   </body>

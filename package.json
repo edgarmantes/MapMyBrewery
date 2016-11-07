@@ -6,7 +6,7 @@
   "scripts": {
     "mkdir": "mkdir build",
     "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
-    "watch": "npm run watch:css & npm run watch:html & npm run watch:js",
+    "watch": "parallelshell \"npm run watch:css\" \"npm run watch:html\" \"npm run watch:js\"",
     "clean": "rm -rf build",
     "build:html": "npm run clean:html && cp index.html build/",
     "watch:html": "npm run build:html && chokidar index.html -c \"npm run build:html\"",
@@ -52,6 +52,7 @@
     "chokidar-cli": "^1.2.0",
     "less": "^2.7.1",
     "less-plugin-clean-css": "^1.5.1",
+    "parallelshell": "^2.0.0",
     "uglify-js": "^2.7.4",
     "webpack": "^1.13.3"
   },
