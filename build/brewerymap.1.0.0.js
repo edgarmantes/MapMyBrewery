@@ -51,11 +51,11 @@
 	Global variables
 	**********************************/
 	
-	var locations = [];
-	var markerCount = 0;
+	// let locations = [];
+	// let markerCount = 0;
 	
-	var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
-	var markers = [];
+	// const postal_search = 'https://dry-savannah-42122.herokuapp.com/';
+	// let markers = [];
 	
 	/*********************************
 	Callback function for GoogleMaps API
@@ -79,11 +79,10 @@
 	*********************************/
 	
 	function displaySearchData(data) {
-	  $('.js-list').remove();
+	  $('.js-list').remove(); //clearview()
 	  $('.sorry').remove();
 	  if (data.data === undefined) {
 	    $('.spinner').fadeOut('slow');
-	
 	    $('.list-container').fadeIn('slow');
 	    emptyList();
 	  } else {
@@ -200,53 +199,53 @@
 	Event Listener
 	*********************************/
 	
-	$(document).ready(function () {
+	// $(document).ready(function(){
 	
-	  // Listener for fullpage call to action
-	  $('.full-page').on('click', '.full-submit', function (e) {
-	    e.preventDefault();
-	    $('.full-page').addClass('hidden');
-	    $('main').fadeIn('slow');
-	    //$('main').removeClass('hidden');
-	    var query = $(this).siblings().val();
-	    getDataFromApi(query, displaySearchData);
-	  });
+	//   // Listener for fullpage call to action
+	//   // $('.full-page').on('click', '.full-submit', function(e) {
+	//   //   e.preventDefault(); 
+	//   //   $('.full-page').addClass('hidden');
+	//   //   $('main').fadeIn('slow');
+	//   //   var query = $(this).siblings().val();
+	//   //   getDataFromApi(query, displaySearchData);
+	//   // });
 	
-	  // Listener for map view 'More!' button
-	  $('.js-search-form').on('click', '.submit', function (e) {
-	    e.preventDefault();
-	    deleteMarkers();
-	    var query = $(this).siblings().val();
-	    getDataFromApi(query, displaySearchData);
-	  });
+	//   // Listener for map view 'More!' button
+	//   $('.js-search-form').on('click', '.submit', function(e) {
+	//     e.preventDefault(); 
+	//     deleteMarkers();
+	//     var query = $(this).siblings().val();
+	//     getDataFromApi(query, displaySearchData);
+	//   });
 	
-	  // Listener for adding to list of interest
-	  $('.list-container').on('click', '.add', function (event) {
-	    event.preventDefault();
-	    $('.favs').fadeIn('slow');
-	    var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
+	//   // Listener for adding to list of interest
+	//   $('.list-container').on('click', '.add', function(event){
+	//     event.preventDefault();
+	//     $('.favs').fadeIn('slow');
+	//     var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
 	
-	    $('.favs').after().append(clone);
-	    $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>');
-	  });
+	//     $('.favs').after().append(clone);
+	//     $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>')
+	//   })
 	
-	  //listener for deleting item from interest list
-	  $('.favs').on('click', '.delete', function (event) {
-	    event.preventDefault();
+	//   //listener for deleting item from interest list
+	//   $('.favs').on('click', '.delete', function(event){
+	//     event.preventDefault();
 	
-	    if ($('.favs').children().length !== 2) {
-	      $(this).closest('.added').detach();
-	      event.stopPropagation();
-	    } else {
-	      $(this).closest('.added').detach();
-	      event.stopPropagation();
-	      $('.favs').fadeOut('slow');
-	    }
-	  });
+	//     if ($('.favs').children().length !== 2) {
+	//       $(this).closest('.added').detach();
+	//       event.stopPropagation();
+	//     } else {
+	//       $(this).closest('.added').detach();
+	//       event.stopPropagation();
+	//       $('.favs').fadeOut('slow');
+	//     }
+	//   })
 	
-	  // $(window).on('load', loading());
-	  $('.spinner').hide();
-	});
+	//   // $(window).on('load', loading());
+	//   $('.spinner').hide();
+	
+	// });
 
 /***/ },
 /* 1 */
