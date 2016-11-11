@@ -2,7 +2,7 @@
   "name": "brewerymap",
   "version": "1.0.0",
   "description": "search for breweries nearby",
-  "main": "js/index.js",
+  "main": "js/controller.js",
   "scripts": {
     "mkdir": "mkdir build",
     "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",

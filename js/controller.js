@@ -17,18 +17,18 @@ let brewery = {
 
 	init : function(){
 		this.cachedDom();
-		this.eventListener();
+		this.addEventListener();
 	},
 
     cachedDom : function(){
     	this.full = $('.full-page');
     	this.main = $('main');
     	this.postalCode = $('.js-postalcode');
-    }	
+    },	
 
-	eventListener : function(){
+	addEventListener : function(){
 		this.full.on('click', '.full-submit', this.get); 
-	}
+	},
     
     hideLanding : this.full.addClass('hidden'),
     
@@ -43,7 +43,7 @@ let brewery = {
 		this.fadeInMain;
 		this.getDataFromApi(this.query, brewery.storeData)
 		displaySearchData(); //how do I render into HTML from the view.js?
-    }
+    },
 
     getDataFromApi : function(searchTerm, storeData) {
 	    let query = {
@@ -57,7 +57,7 @@ let brewery = {
 
 	storeData : function(arrayResults){
 		model.data.location.push(arrayResults);
-	}
+	},
 
 
 }
@@ -116,7 +116,7 @@ function displaySearchData(data) {
 	$('.list-container').fadeIn('slow');
 	emptyList();
 	} else {
-		
+
 		/******************************
 		vars for renderHtmlList()
 		******************************/
