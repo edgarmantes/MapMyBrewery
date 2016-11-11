@@ -33,5 +33,9 @@ module.exports = {
         }
       ]
     },
-    plugins: plugins
+    plugins: plugins,
+    watch: 'js/**/*.js'
 }
+
+
+// watch : js/**/*.js

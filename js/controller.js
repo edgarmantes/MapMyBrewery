@@ -21,18 +21,18 @@ let brewery = {
 	},
 
     cachedDom : function(){
-    	this.full = $('.full-page');
-    	this.main = $('main');
+    	this.$full = $('.full-page');
+    	this.$main = $('main');
     	this.postalCode = $('.js-postalcode');
     },	
 
 	addEventListener : function(){
-		this.full.on('click', '.full-submit', this.get); 
+		this.$full.on('click', '.full-submit', this.get); 
 	},
     
-    hideLanding : this.full.addClass('hidden'),
+    hideLanding : this.$full.addClass('hidden'),
     
-    fadeInMain : this.main.fadeIn('slow'),
+    fadeInMain : this.$main.fadeIn('slow'),
     
     query : this.postalCode.val(),
 
