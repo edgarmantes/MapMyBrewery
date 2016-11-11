@@ -27,7 +27,6 @@ function getDataFromApi(searchTerm, callback) {
   }
   $('.spinner').show();  //When page is loading and AJAX is gathering info, loading screen is present
   $.getJSON(postal_search, query, callback);
-  // $('.spinner').hide();
 }
 
 
@@ -37,7 +36,6 @@ Callback function for BrewerDB API AJAX
 *********************************/
 
 function displaySearchData(data) {
-  locations = [];
   $('.js-list').remove();
   $('.sorry').remove();
   if (data.data === undefined){
