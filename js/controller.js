@@ -10,7 +10,7 @@ let model = require('./model');
 // googleMaps.addInfoWindow()
 
 // loader.showLoader()
-// loader.hideLoader()
+// loader.hideLoader()   $('.list-container').fadeIn('slow');
 
 let brewery = {
 
@@ -23,11 +23,11 @@ let brewery = {
     cachedDom : function(){
     	this.full = $('.full-page');
     	this.main = $('main');
-    	this.postalCode = $('.js-postalcode')
+    	this.postalCode = $('.js-postalcode');
     }	
 
 	eventListener : function(){
-		this.full.on('click', '.full-submit', this.get()) 
+		this.full.on('click', '.full-submit', this.get); 
 	}
     
     hideLanding : this.full.addClass('hidden'),
@@ -52,7 +52,7 @@ let brewery = {
 	    };
 	    let call = model.data.postal_search;
 	    $('.spinner').show();  //When page is loading and AJAX is gathering info, loading screen is present
-	    $.getJSON(call, query, storeData);
+	    $.getJSON(call, query, this.storeData);
 	},
 
 	storeData : function(arrayResults){
@@ -108,6 +108,41 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
 
 
 
+function displaySearchData(data) {
+	$('.js-list').remove(); //clearview()
+	$('.sorry').remove();
+	if (data === undefined){
+	$('.spinner').fadeOut('slow');
+	$('.list-container').fadeIn('slow');
+	emptyList();
+	} else {
+		
+		/******************************
+		vars for renderHtmlList()
+		******************************/
+		addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
+
+		$('.spinner').fadeOut('slow');           //Removes loading screen right before adding markers to make
+
+		renderHtmlList(title, website, index)
+	}
+}
+
+
+
+
+
+
+var button = function(clicked){
+    this.onClick = clicked,
+    this.click = function() {
+
+        if (this.onClick) {
+            this.onClick();
+        }
+    }
+};
+
 
 
 $(document).ready(function(){
@@ -148,3 +183,7 @@ $(document).ready(function(){
   $('.spinner').hide();
 
 });
+
+
+
+

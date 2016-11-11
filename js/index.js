@@ -35,43 +35,43 @@ BreweryDB API Code
 Callback function for BrewerDB API AJAX
 *********************************/
 
-function displaySearchData(data) {
-  $('.js-list').remove(); //clearview()
-  $('.sorry').remove();
-  if (data.data === undefined){
-    $('.spinner').fadeOut('slow');
-    $('.list-container').fadeIn('slow');
-    emptyList();
-  } else {
-    for (var i = 0; i < data.totalResults; i++){
+// function displaySearchData(data) {
+//   $('.js-list').remove(); //clearview()
+//   $('.sorry').remove();
+//   if (data.data === undefined){
+//     $('.spinner').fadeOut('slow');
+//     $('.list-container').fadeIn('slow');
+//     emptyList();
+//   } else {
+//     for (var i = 0; i < data.totalResults; i++){
 
-      /*****************************
-      vars for addMarkerToMap()
-      *****************************/
-      // let lat = data.data[i].latitude;
-      // let lng = data.data[i].longitude;
-      // let title = data.data[i].brewery.name;
-      // let website = data.data[i].website;
-      // let organic = data.data[i].brewery.isOrganic;
-      // let address = data.data[i].streetAddress;
-      // let phone = data.data[i].phone;
-      // let index = i;
-      // let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
-      //           "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
-      //           "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>";
+//       /*****************************
+//       vars for addMarkerToMap()
+//       *****************************/
+//       // let lat = data.data[i].latitude;
+//       // let lng = data.data[i].longitude;
+//       // let title = data.data[i].brewery.name;
+//       // let website = data.data[i].website;
+//       // let organic = data.data[i].brewery.isOrganic;
+//       // let address = data.data[i].streetAddress;
+//       // let phone = data.data[i].phone;
+//       // let index = i;
+//       // let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
+//       //           "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
+//       //           "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>";
       
 
-      /******************************
-      vars for renderHtmlList()
-      ******************************/
-      addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
+//       /******************************
+//       vars for renderHtmlList()
+//       ******************************/
+//       addMarkerToMap(lat, lng, info);    //Adds a marker for each returned object
 
-      $('.spinner').fadeOut('slow');           //Removes loading screen right before adding markers to make
+//       $('.spinner').fadeOut('slow');           //Removes loading screen right before adding markers to make
 
-      renderHtmlList(title, website, index)
-    }
-  }
-}
+//       renderHtmlList(title, website, index)
+//     }
+//   }
+// }
 
 
 
@@ -131,12 +131,12 @@ function that renders new markers to the map
 /****************************************
 Deletes all markers on the map after submitting new zip code query
 *****************************************/
-function deleteMarkers(){
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(null)
-  };
-  markers = [];
-}
+// function deleteMarkers(){
+//   for (let i = 0; i < markers.length; i++) {
+//     markers[i].setMap(null)
+//   };
+//   markers = [];
+// }
 
 
 /*********************************
@@ -161,10 +161,10 @@ Render returned list onto list div on sidebar
 
 
 
-function emptyList(){
-  let say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
-  $('.places').after(say);
-}
+// function emptyList(){
+//   let say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
+//   $('.places').after(say);
+// }
 
 
 

@@ -14,7 +14,7 @@ let markerWindow = function(data){
 	let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
 	        "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
 	        "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>";
-
+	return info;
 }
 
 
@@ -30,7 +30,24 @@ function renderHtmlList(title, website, index){
   let descript = $(description).append(web);
   let listed = $(list).append(descript);
 
-  $('.list-container').fadeIn('slow');
+  // $('.list-container').fadeIn('slow');
   $('.places').after(listed);
 }
+
+
+
+function deleteMarkers(){
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(null)
+  };
+  markers = [];
+}
+
+
+function emptyList(){
+  let say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!')
+  $('.places').after(say);
+}
+
+
 
