@@ -62,33 +62,27 @@
 	var brewery = {
 	
 	  init: function init() {
-	    this.cachedDom();
 	    this.addEventListener();
 	  },
 	
-	  cachedDom: function cachedDom() {
-	    this.full = $('.full-page');
-	    this.main = $('main');
-	    this.postalCode = $('.js-postalcode');
-	  },
-	
 	  addEventListener: function addEventListener() {
-	    this.full.on('click', '.full-submit', this.get);
+	    console.log(this.get);
+	    $('.full-page').on('click', '.full-submit', brewery.get);
 	  },
 	
-	  hideLanding: undefined.full.addClass('hidden'),
+	  hideLanding: $('.full-page').addClass('hidden'),
 	
-	  fadeInMain: undefined.main.fadeIn('slow'),
+	  fadeInMain: $('.full-page').fadeIn('slow'),
 	
-	  query: undefined.postalCode.val(),
+	  query: $('.js-postalcode').val(),
 	
-	  get: function get() {
+	  get: function get(e) {
 	    console.log('logged brewery.get');
-	    e.preventDefault();
+	    // e.preventDefault();
 	    this.hideLanding;
 	    this.fadeInMain;
 	    this.getDataFromApi(this.query, brewery.storeData);
-	    displaySearchData(); //how do I render into HTML from the view.js?
+	    //displaySearchData(); //how do I render into HTML from the view.js?
 	  },
 	
 	  getDataFromApi: function getDataFromApi(searchTerm, storeData) {
@@ -102,7 +96,7 @@
 	  },
 	
 	  storeData: function storeData(arrayResults) {
-	    model.data.location.push(arrayResults);
+	    //model.data.location.push(arrayResults);
 	  }
 	
 	};
@@ -177,7 +171,7 @@
 	};
 	
 	$(document).ready(function () {
-	
+	  brewery.init();
 	  // Listener for map view 'More!' button
 	  $('.js-search-form').on('click', '.submit', function (e) {
 	    e.preventDefault();

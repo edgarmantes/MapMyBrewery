@@ -16,33 +16,28 @@ let brewery = {
 
 
 	init : function(){
-		this.cachedDom();
 		this.addEventListener();
 	},
 
-    cachedDom : function(){
-    	this.$full = $('.full-page');
-    	this.$main = $('main');
-    	this.postalCode = $('.js-postalcode');
-    },	
 
 	addEventListener : function(){
-		this.$full.on('click', '.full-submit', this.get); 
+		console.log(this.get)
+		$('.full-page').on('click', '.full-submit', brewery.get); 
 	},
     
-    hideLanding : this.$full.addClass('hidden'),
+    hideLanding : $('.full-page').addClass('hidden'),
     
-    fadeInMain : this.$main.fadeIn('slow'),
+    fadeInMain : $('.full-page').fadeIn('slow'),
     
-    query : this.postalCode.val(),
+    query : $('.js-postalcode').val(),
 
-    get: function(){
+    get: function(e){
 		console.log('logged brewery.get')
-		e.preventDefault();
+		// e.preventDefault();
 		this.hideLanding;
 		this.fadeInMain;
 		this.getDataFromApi(this.query, brewery.storeData)
-		displaySearchData(); //how do I render into HTML from the view.js?
+		//displaySearchData(); //how do I render into HTML from the view.js?
     },
 
     getDataFromApi : function(searchTerm, storeData) {
@@ -56,7 +51,7 @@ let brewery = {
 	},
 
 	storeData : function(arrayResults){
-		model.data.location.push(arrayResults);
+		//model.data.location.push(arrayResults);
 	},
 
 
@@ -146,7 +141,7 @@ var button = function(clicked){
 
 
 $(document).ready(function(){
-
+	brewery.init();
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
