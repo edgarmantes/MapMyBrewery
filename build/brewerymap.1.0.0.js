@@ -215,9 +215,7 @@
 	    e.preventDefault();
 	    $('.full-page').addClass('hidden');
 	    $('main').fadeIn('slow');
-	
 	    var query = $(this).siblings().val();
-	    console.log(195, query);
 	    getDataFromApi(query, displaySearchData);
 	  });
 	

@@ -38,6 +38,7 @@ main {
   background-color: black;
   background-image: url(../images/plus.png);
   background-repeat: no-repeat;
+  background-position: center;
 }
 .listed {
   background-color: rgba(255, 255, 179, 0.8);
@@ -47,6 +48,7 @@ main {
   background-color: lightgrey;
   background-image: url(../images/minus.png);
   background-repeat: no-repeat;
+  background-position: center;
 }
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {
@@ -108,7 +110,7 @@ main {
 .full-input {
   font-size: 7.0vw;
   font-family: 'Economica', sans-serif;
-  color: white;
+  color: black;
   text-align: center;
 }
 .full-submit {
@@ -309,16 +311,16 @@ main {
   display: inline-block;
 }
 .full-submit {
-  width: 65px;
-  height: 65px;
+  width: 75px;
+  height: 75px;
   border-radius: 100%;
   border: none;
   background-color: black;
   border: 2px solid lightgrey;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 .sub-btn {
-  margin: 10px;
+  margin-bottom: 17px;
 }
 .header {
   display: inline-block;
@@ -372,6 +374,8 @@ main {
 .add {
   margin: 5px 0 5px 0;
   float: right;
+  height: 45px;
+  width: 45px;
 }
 .favs {
   max-height: 300px;
@@ -379,9 +383,10 @@ main {
   display: none;
 }
 .delete {
-  height: 70px;
+  margin: 5px 0 5px 0;
   float: right;
-  border: 10px solid #802000;
+  height: 45px;
+  width: 45px;
 }
 .sorry {
   margin-left: 10px;
@@ -458,10 +463,8 @@ main {
   }
   .list-name {
     padding: 10px 0 5px 0;
-    width: 100%;
   }
   .add {
-    height: 25px;
     border: 2px solid lightgrey;
     padding: 12px;
     margin-right: 4%;
