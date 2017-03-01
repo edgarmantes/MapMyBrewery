@@ -55,13 +55,19 @@ function displaySearchData(data) {
       let lng = data.data[i].longitude;
       let title = data.data[i].brewery.name;
       let website = data.data[i].website;
-      let organic = data.data[i].brewery.isOrganic;
+      let organic = function(){
+        if (data.data[i].brewery.isOrganic === "N"){
+          return "No"
+        } else {
+          return "Yes"
+        }
+      }
       let address = data.data[i].streetAddress;
       let phone = data.data[i].phone;
       let index = i;
-      let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic + "<br><p class='pop-p'>" + address + "</p>" +
+      let info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic() + "<br><p class='pop-p'>" + address + "</p>" +
                 "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + 
-                "' target='_blank'><p class='pop-p'>Check out our Webiste</p></a>";
+                "' target='_blank'><p class='pop-p'>Check out our Website</p></a>";
       
 
       /******************************
@@ -152,7 +158,7 @@ function renderHtmlList(title, website, index){
   let description = $('<div>').addClass('description description-block');
   let listName = $('<h4>').addClass('list-name').attr('id', index).html(title);
   let link = $('<a>').attr('href', '#').addClass('wind marker-link')
-  let addTo = $('<button>').addClass('add').html('Save To List');
+  let addTo = $('<button>').addClass('add');
 
   let web = $(link).append(listName).append(addTo);
   let descript = $(description).append(web);
@@ -184,7 +190,6 @@ $(document).ready(function(){
     e.preventDefault(); 
     $('.full-page').addClass('hidden');
     $('main').fadeIn('slow');
-    //$('main').removeClass('hidden');
     var query = $(this).siblings().val();
     getDataFromApi(query, displaySearchData);
   });
@@ -204,7 +209,7 @@ $(document).ready(function(){
     var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
 
     $('.favs').after().append(clone);
-    $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>')
+    $('.favs').find('.add').replaceWith('<button class="delete"></button>')
   })
 
   //listener for deleting item from interest list
