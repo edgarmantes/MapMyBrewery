@@ -47,59 +47,84 @@
 	'use strict';
 	
 	var $ = __webpack_require__(1);
+	/**********************************
+	Global variables
+	**********************************/
 	
-	var model = __webpack_require__(2);
-	// brewery.addToList()
-	// brewery.addToFav()
+	var locations = [];
+	var markerCount = 0;
 	
-	// googleMaps.addEventListener()
-	// googleMaps.addMarker()
-	// googleMaps.addInfoWindow()
+	var postal_search = 'https://dry-savannah-42122.herokuapp.com/';
+	var markers = [];
 	
-	// loader.showLoader()
-	// loader.hideLoader()   $('.list-container').fadeIn('slow');
+	/*********************************
+	Callback function for GoogleMaps API
+	*********************************/
 	
-	var brewery = {
+	/**********************************
+	BreweryDB API Code
+	**********************************/
 	
-	  init: function init() {
-	    this.addEventListener();
-	  },
+	function getDataFromApi(searchTerm, callback) {
+	  var query = {
+	    key: '8ea35ba681e47e9437e67134692a65b5',
+	    postalCode: searchTerm
+	  };
+	  $('.spinner').show(); //When page is loading and AJAX is gathering info, loading screen is present
+	  $.getJSON(postal_search, query, callback);
+	  // $('.spinner').hide();
+	}
 	
-	  addEventListener: function addEventListener() {
-	    console.log(this.get);
-	    $('.full-page').on('click', '.full-submit', brewery.get);
-	  },
+	/*********************************
+	Callback function for BrewerDB API AJAX
+	*********************************/
 	
-	  hideLanding: $('.full-page').addClass('hidden'),
+	function displaySearchData(data) {
+	  locations = [];
+	  $('.js-list').remove();
+	  $('.sorry').remove();
+	  if (data.data === undefined) {
+	    $('.spinner').fadeOut('slow');
 	
-	  fadeInMain: $('.full-page').fadeIn('slow'),
+	    $('.list-container').fadeIn('slow');
+	    emptyList();
+	  } else {
+	    for (var i = 0; i < data.totalResults; i++) {
 	
-	  query: $('.js-postalcode').val(),
+	      /*****************************
+	      vars for addMarkerToMap()
+	      *****************************/
+	      var lat = data.data[i].latitude;
+	      var lng = data.data[i].longitude;
+	      var title = data.data[i].brewery.name;
+	      var website = data.data[i].website;
+	      var organic = function organic() {
+	        if (data.data[i].brewery.isOrganic === "N") {
+	          return "No";
+	        } else {
+	          return "Yes";
+	        }
+	      };
+	      var address = data.data[i].streetAddress;
+	      var phone = data.data[i].phone;
+	      var index = i;
+	      var info = "<h1 class='popup'>" + title + "</h1><br><p class='pop-p'>Organic: " + organic() + "<br><p class='pop-p'>" + address + "</p>" + "<br><a class='pop-p' href='tel:" + phone + "'>phone:  " + phone + "</><br><a href='" + website + "' target='_blank'><p class='pop-p'>Check out our Website</p></a>";
 	
-	  get: function get(e) {
-	    console.log('logged brewery.get');
-	    // e.preventDefault();
-	    this.hideLanding;
-	    this.fadeInMain;
-	    this.getDataFromApi(this.query, brewery.storeData);
-	    //displaySearchData(); //how do I render into HTML from the view.js?
-	  },
+	      /******************************
+	      vars for renderHtmlList()
+	      ******************************/
+	      addMarkerToMap(lat, lng, info); //Adds a marker for each returned object
 	
-	  getDataFromApi: function getDataFromApi(searchTerm, storeData) {
-	    var query = {
-	      key: '8ea35ba681e47e9437e67134692a65b5',
-	      postalCode: searchTerm
-	    };
-	    var call = model.data.postal_search;
-	    $('.spinner').show(); //When page is loading and AJAX is gathering info, loading screen is present
-	    $.getJSON(call, query, this.storeData);
-	  },
+	      $('.spinner').fadeOut('slow'); //Removes loading screen right before adding markers to make
 	
-	  storeData: function storeData(arrayResults) {
-	    //model.data.location.push(arrayResults);
+	      renderHtmlList(title, website, index);
+	    }
 	  }
+	}
 	
-	};
+	/*********************************
+	function that renders new markers to the map
+	*********************************/
 	
 	function addMarkerToMap(lat, long, htmlMarkupForInfoWindow) {
 	  var infowindow = new google.maps.InfoWindow();
@@ -118,12 +143,14 @@
 	  $('.list-container').on('click', '.list-name', function () {
 	    var numString = $(this).attr('id');
 	    var num = parseInt(numString);
+	    console.log(markers);
 	    google.maps.event.trigger(markers[num], 'click');
 	  });
 	
 	  $('.favs').on('click', '.list-name', function () {
 	    var numString = $(this).attr('id');
 	    var num = parseInt(numString);
+	    console.log(markers);
 	    google.maps.event.trigger(markers[num], 'click');
 	  });
 	
@@ -137,41 +164,63 @@
 	    };
 	  }(marker, markerCount));
 	
+	  console.log(map);
 	  //Pans map to the new location of the marker
 	  map.panTo(myLatLng);
 	}
 	
-	function displaySearchData(data) {
-	  $('.js-list').remove(); //clearview()
-	  $('.sorry').remove();
-	  if (data === undefined) {
-	    $('.spinner').fadeOut('slow');
-	    $('.list-container').fadeIn('slow');
-	    emptyList();
-	  } else {
-	
-	    /******************************
-	    vars for renderHtmlList()
-	    ******************************/
-	    addMarkerToMap(lat, lng, info); //Adds a marker for each returned object
-	
-	    $('.spinner').fadeOut('slow'); //Removes loading screen right before adding markers to make
-	
-	    renderHtmlList(title, website, index);
-	  }
+	/****************************************
+	Deletes all markers on the map after submitting new zip code query
+	*****************************************/
+	function deleteMarkers() {
+	  for (var i = 0; i < markers.length; i++) {
+	    markers[i].setMap(null);
+	  };
+	  markers = [];
 	}
 	
-	var button = function button(clicked) {
-	  this.onClick = clicked, this.click = function () {
+	/*********************************
+	Render returned list onto list div on sidebar
+	*********************************/
 	
-	    if (this.onClick) {
-	      this.onClick();
-	    }
-	  };
-	};
+	function renderHtmlList(title, website, index) {
+	
+	  var list = $('<div>').addClass('js-list');
+	  var description = $('<div>').addClass('description description-block');
+	  var listName = $('<h4>').addClass('list-name').attr('id', index).html(title);
+	  var link = $('<a>').attr('href', '#').addClass('wind marker-link');
+	  var addTo = $('<button>').addClass('add');
+	
+	  var web = $(link).append(listName).append(addTo);
+	  var descript = $(description).append(web);
+	  var listed = $(list).append(descript);
+	
+	  $('.list-container').fadeIn('slow');
+	  $('.places').after(listed);
+	}
+	
+	function emptyList() {
+	  var say = $('<h4>').addClass('list-name sorry').append('Sorry! No breweries there... Try another place!');
+	  $('.places').after(say);
+	}
+	
+	/*********************************
+	Event Listener
+	*********************************/
 	
 	$(document).ready(function () {
-	  brewery.init();
+	
+	  // Listener for fullpage call to action
+	  $('.full-page').on('click', '.full-submit', function (e) {
+	    e.preventDefault();
+	    $('.full-page').addClass('hidden');
+	    $('main').fadeIn('slow');
+	
+	    var query = $(this).siblings().val();
+	    console.log(195, query);
+	    getDataFromApi(query, displaySearchData);
+	  });
+	
 	  // Listener for map view 'More!' button
 	  $('.js-search-form').on('click', '.submit', function (e) {
 	    e.preventDefault();
@@ -187,7 +236,7 @@
 	    var clone = $(this).closest('.js-list').clone().removeClass('js-list').addClass('added');;
 	
 	    $('.favs').after().append(clone);
-	    $('.favs').find('.add').replaceWith('<button class="delete">Delete</button>');
+	    $('.favs').find('.add').replaceWith('<button class="delete"></button>');
 	  });
 	
 	  //listener for deleting item from interest list
@@ -10433,29 +10482,6 @@
 	return jQuery;
 	} );
 
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(1);
-	
-	module.exports = {
-	
-		data: {
-			locations: [],
-			markerCount: 0,
-			postal_search: 'https://dry-savannah-42122.herokuapp.com/',
-			markers: []
-		},
-	
-		list: {},
-	
-		favsList: {}
-	
-	};
 
 /***/ }
 /******/ ]);

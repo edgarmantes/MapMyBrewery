@@ -70,21 +70,31 @@ main {
   width: 82%;
   height: 100px;
   outline-width: 0;
-  box-shadow: inset 0px 0px 27px rgba(0,0,0,0.8);
-  background-color: rgba(255,255,255,0.8);
+  box-shadow: inset 0px 0px 27px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid gray;
+  vertical-align: top;
+}
+
+.full-btn-container {
+  display: inline-block;
 }
 
 .full-submit {
-  postion: absolute;
-  right: 0;
-  top: 0;
-  margin: 15px 0 15px 0;
-  width: 90px;
-  height: 90px;
-  border: 10px solid lightgrey;
+  width: 65px;
+  height: 65px;
   border-radius: 100%;
+  border: none;
+
+  background-color: black;
+  border: 2px solid lightgrey;
+  margin-top: 15px;
 }
+
+.sub-btn {
+  margin: 10px;
+}
+
 
 
 .header {
@@ -102,16 +112,17 @@ main {
 .postalcode {
   width: 40%;
   height: 90px;
-  margin: 8px;
+  margin: 8px 0;
   outline-width: 0;
   border: 5px solid white;
 }
 
 .submit {
-  margin: 12px 8px 5px 8px;
+  margin: 12px 8px 5px 0;
   width: 18%;
   height: 90px;
-  border: 5px solid lightgrey;
+  border: none;
+  background-color: black;
 }
 
 .places, .list {
@@ -144,10 +155,7 @@ main {
 
 .add {
   margin: 5px 0 5px 0;
-  width: 30%;
-  height: 70px;
   float: right;
-  border: 10px solid lightgrey;
 }
 
 .favs {
@@ -157,8 +165,6 @@ main {
 }
 
 .delete {
-  margin: 5px 0 5px 0;
-  width: 30%;
   height: 70px;
   float: right;
   border: 10px solid rgb(128, 32, 0);
@@ -174,6 +180,7 @@ main {
 
 .popup {
   margin-bottom: 0;
+  margin-top: 10px;
 }
 
 /*for iPads and Tablets*/
@@ -262,24 +269,23 @@ main {
   .list-name {
     padding: 10px 0 5px 0;
     width: 100%;
-	&:hover {
-	  padding: none;
-	}
-
   }
 
   .add {
-    margin: 5px 0 5px 0;
-    width: 40%;
     height: 25px;
     border: 2px solid lightgrey;
+    padding: 12px;
+    margin-right: 4%;
+    margin-bottom: 5px;
   }
 
 
   .delete {
-    width: 40%;
     height: 25px;
-    border: 2px solid rgb(128, 32, 0);
+    border: 2px solid lightgrey;
+    padding: 12px;
+    margin-right: 4%;
+    margin-bottom: 5px;
   }
 
   .header {

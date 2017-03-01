@@ -2,7 +2,7 @@
 mixins
 ******************************/
 .backTrans {
-  background-color: transparent;
+  background-color: #fff;
 }
 /*****************************/
 #map {
@@ -15,32 +15,38 @@ main {
   background-color: rgba(230, 115, 0, 0.9);
 }
 .full-input {
-  background-color: transparent;
+  background-color: #fff;
 }
 .full-submit {
-  background-color: transparent;
+  background-color: #fff;
 }
 .full-submit:active {
   background-color: lightgrey;
 }
 .postalcode {
-  background-color: transparent;
+  background-color: #fff;
 }
 .submit {
-  background-color: transparent;
+  background-color: #fff;
 }
 .places,
 .list {
   background-color: #802000;
 }
 .add {
-  background-color: transparent;
+  background-color: #fff;
+  background-color: black;
+  background-image: url(../images/plus.png);
+  background-repeat: no-repeat;
 }
 .listed {
   background-color: rgba(255, 255, 179, 0.8);
 }
 .delete {
-  background-color: transparent;
+  background-color: #fff;
+  background-color: lightgrey;
+  background-image: url(../images/minus.png);
+  background-repeat: no-repeat;
 }
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {
@@ -54,13 +60,13 @@ main {
     background-color: rgba(255, 255, 255, 0);
   }
   .postalcode {
-    background-color: transparent;
+    background-color: #fff;
   }
   /****************************
   Button and Text
   ****************************/
   .submit {
-    background-color: transparent;
+    background-color: #fff;
   }
   .submit:hover {
     background-color: lightgrey;
@@ -143,6 +149,7 @@ main {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 .add {
   font-size: 2.0em;
@@ -191,11 +198,6 @@ a {
     font-family: 'Economica', sans-serif;
     color: black;
     text-decoration: none;
-  }
-  .list-name:hover {
-    font-size: 32px;
-    color: blue;
-    padding: none;
   }
   .add {
     font-size: 1.0em;
@@ -294,16 +296,29 @@ main {
   margin: 0 0 20px 0;
 }
 .full-input {
+  position: relative;
   width: 82%;
   height: 100px;
   outline-width: 0;
-  border: 10px solid white;
+  box-shadow: inset 0px 0px 27px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid gray;
+  vertical-align: top;
+}
+.full-btn-container {
+  display: inline-block;
 }
 .full-submit {
-  margin: 15px 0 15px 0;
-  width: 82%;
-  height: 125px;
-  border: 10px solid lightgrey;
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+  border: none;
+  background-color: black;
+  border: 2px solid lightgrey;
+  margin-top: 15px;
+}
+.sub-btn {
+  margin: 10px;
 }
 .header {
   display: inline-block;
@@ -318,15 +333,16 @@ main {
 .postalcode {
   width: 40%;
   height: 90px;
-  margin: 8px;
+  margin: 8px 0;
   outline-width: 0;
   border: 5px solid white;
 }
 .submit {
-  margin: 12px 8px 5px 8px;
+  margin: 12px 8px 5px 0;
   width: 18%;
   height: 90px;
-  border: 5px solid lightgrey;
+  border: none;
+  background-color: black;
 }
 .places,
 .list {
@@ -355,10 +371,7 @@ main {
 }
 .add {
   margin: 5px 0 5px 0;
-  width: 30%;
-  height: 70px;
   float: right;
-  border: 10px solid lightgrey;
 }
 .favs {
   max-height: 300px;
@@ -366,8 +379,6 @@ main {
   display: none;
 }
 .delete {
-  margin: 5px 0 5px 0;
-  width: 30%;
   height: 70px;
   float: right;
   border: 10px solid #802000;
@@ -380,6 +391,7 @@ main {
 }
 .popup {
   margin-bottom: 0;
+  margin-top: 10px;
 }
 /*for iPads and Tablets*/
 @media only screen and (min-width: 1030px) {
@@ -448,19 +460,19 @@ main {
     padding: 10px 0 5px 0;
     width: 100%;
   }
-  .list-name:hover {
-    padding: none;
-  }
   .add {
-    margin: 5px 0 5px 0;
-    width: 40%;
     height: 25px;
     border: 2px solid lightgrey;
+    padding: 12px;
+    margin-right: 4%;
+    margin-bottom: 5px;
   }
   .delete {
-    width: 40%;
     height: 25px;
-    border: 2px solid #802000;
+    border: 2px solid lightgrey;
+    padding: 12px;
+    margin-right: 4%;
+    margin-bottom: 5px;
   }
   .header {
     margin: auto;
