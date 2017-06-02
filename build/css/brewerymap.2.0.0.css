@@ -114,11 +114,6 @@ main {
   color: black;
   text-align: center;
 }
-.full-submit {
-  font-size: 7.0vw;
-  font-family: 'Economica', sans-serif;
-  color: lightgrey;
-}
 .full-submit:active {
   color: rgba(230, 115, 0, 0.9);
 }
@@ -185,9 +180,6 @@ a {
   /****************************
   Button and Text
   ****************************/
-  .full-submit {
-    font-size: 70px;
-  }
   .submit {
     font-size: 2.0vw;
     font-family: 'Economica', sans-serif;
@@ -492,9 +484,6 @@ button.social-signin.google {
 button.social-signin.google img {
   margin-left: 7px;
 }
-.sub-btn {
-  margin-bottom: 17px;
-}
 .header {
   display: inline-block;
   width: 35%;
@@ -518,6 +507,14 @@ button.social-signin.google img {
   height: 90px;
   border: none;
   background-color: black;
+}
+.exit {
+  display: block;
+  background: none;
+  border: none;
+  margin: 10px auto;
+  text-decoration: underline;
+  font-family: 'Economica', sans-serif;
 }
 .places,
 .list {

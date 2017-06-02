@@ -214,18 +214,28 @@
 	  // Listener for fullpage call to action
 	  $('.full-page').on('click', '.full-submit', function (e) {
 	    e.preventDefault();
-	    $('.full-page').addClass('hidden');
-	    $('main').fadeIn('slow');
 	    var query = $(this).siblings().val();
-	    getDataFromApi(query, displaySearchData);
+	    if (query) {
+	      $('.full-page').addClass('hidden');
+	      $('main').fadeIn('slow');
+	
+	      getDataFromApi(query, displaySearchData);
+	    } else {
+	      alert('Please enter a zip code!');
+	    }
 	  });
 	
 	  // Listener for map view 'More!' button
 	  $('.js-search-form').on('click', '.submit', function (e) {
 	    e.preventDefault();
-	    deleteMarkers();
 	    var query = $(this).siblings().val();
-	    getDataFromApi(query, displaySearchData);
+	
+	    if (query) {
+	      deleteMarkers();
+	      getDataFromApi(query, displaySearchData);
+	    } else {
+	      alert('Please enter a zip code');
+	    }
 	  });
 	
 	  // Listener for adding to list of interest
@@ -265,6 +275,11 @@
 	    }, function (data, status) {
 	      console.log("\nStatus: " + status);
 	    });
+	  });
+	
+	  // Exit button, back to splash page
+	  $('.js-exit-splash').on('click', function () {
+	    window.location.reload();
 	  });
 	});
 
