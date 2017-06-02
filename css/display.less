@@ -14,6 +14,10 @@ body {
   height: 100%;
 }
 
+.sans {
+  font-family: sans-serif;
+}
+
 
 #map {
   width: 100%;
@@ -91,10 +95,199 @@ main {
   margin-top: 12px;
 }
 
-.sub-btn {
-  margin-bottom: 17px;
+.js-sign {
+  ul {
+    list-style: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+    li {
+      display: inline-block;
+      padding: 0 20px;
+    }
+
+    li:nth-child(1) {
+      border-right: 1px solid black;
+    }
+  }
 }
 
+/***********************
+Sign in/up Page
+***********************/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  /*font-family: 'Roboto', sans-serif;*/
+  .sans;
+  font-weight: 300;
+}
+
+#login-box {
+  position: relative;
+  margin: 20% auto;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.sign[type="text"],
+.sign[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  .sans;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.sign[type="text"]:focus,
+.sign[type="password"]:focus {
+  border-bottom: 2px solid rgb(230, 115, 0);
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: rgba(0,0,0,1);;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  .sans;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(230, 115, 0, 0.9);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  .sans;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin.facebook {
+  background: #32508E;
+  img {
+    margin-left: 7px;
+  }
+}
+
+button.social-signin.twitter {
+  background: #55ACEE;
+  img {
+    margin-left: 7px;
+  }
+}
+
+button.social-signin.google {
+  background: #DD4B39;
+  img {
+    margin-left: 7px;
+  }  
+}
 
 
 .header {
@@ -123,6 +316,15 @@ main {
   height: 90px;
   border: none;
   background-color: black;
+}
+
+.exit {
+  display: block;
+  background: none;
+  border: none;
+  margin: 10px auto;
+  text-decoration: underline;
+  font-family: 'Economica', sans-serif;
 }
 
 .places, .list {

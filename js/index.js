@@ -1,5 +1,7 @@
 'use strict'
 const $ = require('jquery')
+let signin =  require('./signin.js')
+
 /**********************************
 Global variables
 **********************************/
@@ -106,7 +108,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
   $('.list-container').on('click', '.list-name', function(){
     let numString = $(this).attr('id');
     let num = parseInt(numString)
-    console.log(markers)
+
     google.maps.event.trigger(markers[num], 'click');
 
   })
@@ -114,7 +116,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
     $('.favs').on('click', '.list-name', function(){
     let numString = $(this).attr('id');
     let num = parseInt(numString)
-    console.log(markers)
+
     google.maps.event.trigger(markers[num], 'click');
 
   })
@@ -129,7 +131,7 @@ function addMarkerToMap(lat, long, htmlMarkupForInfoWindow){
     }
   })(marker, markerCount)); 
 
-  console.log(map)
+
   //Pans map to the new location of the marker
   map.panTo(myLatLng)   
 
@@ -188,18 +190,30 @@ $(document).ready(function(){
   // Listener for fullpage call to action
   $('.full-page').on('click', '.full-submit', function(e) {
     e.preventDefault(); 
-    $('.full-page').addClass('hidden');
-    $('main').fadeIn('slow');
     var query = $(this).siblings().val();
-    getDataFromApi(query, displaySearchData);
+    if(query) {
+      $('.full-page').addClass('hidden');
+      $('main').fadeIn('slow');
+      
+      getDataFromApi(query, displaySearchData);      
+    } else {
+      alert('Please enter a zip code!')
+    }
+
   });
 
   // Listener for map view 'More!' button
   $('.js-search-form').on('click', '.submit', function(e) {
     e.preventDefault(); 
-    deleteMarkers();
     var query = $(this).siblings().val();
-    getDataFromApi(query, displaySearchData);
+
+    if(query) {
+      deleteMarkers();
+      getDataFromApi(query, displaySearchData);      
+    } else {
+      alert('Please enter a zip code')
+    }
+
   });
 
   // Listener for adding to list of interest
@@ -228,5 +242,26 @@ $(document).ready(function(){
 
   // $(window).on('load', loading());
   $('.spinner').hide();
+
+
+  $('input[type=submit]').on('click', () => {
+    let password = $('input[name=password]').val();
+    let password2 = $('input[name=password2]').val();
+    
+    $.post('/account',
+      {
+          password: password,
+          password2: password2
+      },
+      function(data, status){
+          console.log("\nStatus: " + status);
+    });
+  });
+
+  // Exit button, back to splash page
+  $('.js-exit-splash').on('click', () => {
+    window.location.reload();
+
+  })
 
 });
