@@ -3,6 +3,7 @@
   <head>
   <meta charset="utf-8">
   <title>Map My Beer Run</title>
+  <link rel="pubIcon" href="pub-icon.ico">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Economica|Righteous" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="build/css/brewerymap.2.0.0.css">
@@ -23,7 +24,7 @@
               <h1 class="head">Breweries</h1>
               <p class="full-p">Lets Drink!... Where to first?!?!</p>
               <div class="container">
-                <input type="text" class="js-postalcode full-input" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!">
+                <input type="text" class="js-postalcode full-input" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!" required>
                 <button type="submit" class="full-submit">
                   <div class="full-btn-container"><img class="sub-btn" src="images/arrow-right.png"/></div>
                 </button>
@@ -47,7 +48,7 @@
                 <div class="container">
                   <input type="text" class="js-postalcode postalcode" name="js-postalcode" autocomplete="off" placeholder="Zip Code here!"
                   ><button type="submit" class="submit">More!</button
-                  ><button class="js-exit-splash">Exit</button>
+                  ><button class="js-exit-splash exit">Exit</button>
                 </div>
             </div>  
           </form>
