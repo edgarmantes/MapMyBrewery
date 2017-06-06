@@ -24,6 +24,9 @@ main {
 .full-submit:active {
   background-color: lightgrey;
 }
+.full-warning {
+  background-color: rgba(255, 0, 0, 0.3);
+}
 .postalcode {
   background-color: #fff;
 }
@@ -116,6 +119,23 @@ main {
 }
 .full-submit:active {
   color: rgba(230, 115, 0, 0.9);
+}
+.full-message {
+  font-size: 3rem;
+  font-family: 'Economica', sans-serif;
+}
+.warning {
+  font-size: 39px;
+  text-align: center;
+}
+.message {
+  font-size: 50px;
+  font-family: 'Economica', sans-serif;
+}
+.exit {
+  text-decoration: underline;
+  font-family: 'Economica', sans-serif;
+  font-size: 3rem;
 }
 .header {
   font-size: 7vw;
@@ -315,6 +335,20 @@ main {
   border: 2px solid lightgrey;
   margin-top: 12px;
 }
+.full-warning {
+  display: none;
+  width: 80%;
+  margin: 50px auto;
+  height: 200px;
+  border: 2px solid red;
+}
+.full-message {
+  margin-top: 70px;
+}
+.warning {
+  width: 56%;
+  margin: 0 auto;
+}
 .js-sign ul {
   list-style: none;
   position: fixed;
@@ -513,8 +547,6 @@ button.social-signin.google img {
   background: none;
   border: none;
   margin: 10px auto;
-  text-decoration: underline;
-  font-family: 'Economica', sans-serif;
 }
 .places,
 .list {

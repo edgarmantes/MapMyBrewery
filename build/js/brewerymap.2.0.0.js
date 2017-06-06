@@ -221,8 +221,14 @@
 	
 	      getDataFromApi(query, displaySearchData);
 	    } else {
-	      alert('Please enter a zip code!');
+	      $('.full-warning')[0].style.display = 'block';
+	      $('.js-full-message')[0].innerHTML = 'Please enter a zip code';
 	    }
+	  });
+	
+	  $('.full-input').on('focus', function (e) {
+	    e.preventDefault();
+	    $('.full-warning')[0].style.display = 'none';
 	  });
 	
 	  // Listener for map view 'More!' button
@@ -234,8 +240,15 @@
 	      deleteMarkers();
 	      getDataFromApi(query, displaySearchData);
 	    } else {
-	      alert('Please enter a zip code');
+	      $('.js-postalcode')[0].style.background = 'rgb(255,0,0)';
+	      $('.warning')[0].style.display = 'block';
+	      $('.js-message')[0].innerHTML = 'Please enter a zip code';
 	    }
+	  });
+	
+	  $('.js-postalcode').on('focus', function (e) {
+	    e.preventDefault();
+	    $('.warning')[0].style.display = 'none';
 	  });
 	
 	  // Listener for adding to list of interest
